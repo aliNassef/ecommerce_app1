@@ -9,7 +9,6 @@ class SettingView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       resizeToAvoidBottomInset: false,
-      
       backgroundColor: Colors.white,
       body: SafeArea(
         child: SettingViewBody(),

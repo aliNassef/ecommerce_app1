@@ -5,7 +5,11 @@ import '../../../../../core/utils/styles.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField(
-      {super.key, required this.hint, this.suffixIcon, this.hold = false, required this.controller});
+      {super.key,
+      required this.hint,
+      this.suffixIcon,
+      this.hold = false,
+      required this.controller});
   final String hint;
   final Widget? suffixIcon;
   final bool hold;

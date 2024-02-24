@@ -7,7 +7,8 @@ import '../../../../../core/utils/styles.dart';
 class SignButton extends StatelessWidget {
   const SignButton({
     super.key,
-    required this.text, this.onTap,
+    required this.text,
+    this.onTap,
   });
   final String text;
   final void Function()? onTap;

@@ -3,7 +3,8 @@ import 'package:ecommerce_app/core/api/api_consumer.dart';
 
 import '../errors/exceptions.dart';
 import 'api_interceptors.dart';
-import 'end_ponits.dart'; 
+import 'end_ponits.dart';
+
 class DioConsumer extends ApiConsumer {
   final Dio dio;
 

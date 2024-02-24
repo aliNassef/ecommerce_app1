@@ -1,4 +1,4 @@
- import 'package:ecommerce_app/features/home/presentation/views/product_list_view.dart';
+import 'package:ecommerce_app/features/home/presentation/views/product_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 

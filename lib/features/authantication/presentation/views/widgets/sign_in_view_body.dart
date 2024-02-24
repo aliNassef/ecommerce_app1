@@ -60,8 +60,8 @@ class SignInViewBody extends StatelessWidget {
                 ImageData.eyeSlash,
                 height: 24,
                 width: 24,
-              ),              controller: context.read<AuthanticationCubit>().signInEmail,
-
+              ),
+              controller: context.read<AuthanticationCubit>().signInEmail,
             ),
             SizedBox(
               height: 32.h,
