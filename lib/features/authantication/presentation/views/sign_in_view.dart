@@ -1,3 +1,5 @@
+  import 'package:ecommerce_app/core/api/server_locator.dart';
+ import 'package:ecommerce_app/features/authantication/data/repo/auth_repo_impl.dart';
 import 'package:ecommerce_app/features/authantication/presentation/manger/authantication/authantication_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,7 +12,9 @@ class SignInView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocProvider(
-        create: (context) => AuthanticationCubit(),
+        create: (context) => AuthanticationCubit(
+          getIt.get<AuthRepoImpl>(),
+        ),
         child: const SignInViewBody(),
       ),
     );
