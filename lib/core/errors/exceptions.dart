@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-import 'error_model.dart';
+import 'error_model/error_model.dart';
 
 class ServerException implements Exception {
   final ErrorModel errModel;

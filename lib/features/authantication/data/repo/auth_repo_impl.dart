@@ -27,7 +27,7 @@ class AuthRepoImpl extends AuthRepo {
       final user = SignUpModel.fromJson(response);
       return Left(user);
     } on ServerException catch (e) {
-      return Right(e.errModel.message);
+      return Right(e.errModel.message !);
     }
   }
 }

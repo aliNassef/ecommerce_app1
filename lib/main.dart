@@ -1,10 +1,16 @@
 import 'package:ecommerce_app/constants.dart';
+import 'package:ecommerce_app/core/api/server_locator.dart';
 import 'package:ecommerce_app/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'core/cache/cache_helper.dart';
+
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  CacheHelper().init();
+  setupGetIt();
   runApp(const EcommerceApp());
 }
 
