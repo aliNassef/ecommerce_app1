@@ -5,13 +5,15 @@ import '../../../../../core/utils/styles.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField(
-      {super.key, required this.hint, this.suffixIcon, this.hold = false});
+      {super.key, required this.hint, this.suffixIcon, this.hold = false, required this.controller});
   final String hint;
   final Widget? suffixIcon;
   final bool hold;
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       obscureText: hold,
       cursorColor: kPrimaryColor,
       style: Styles.textStyle18.copyWith(color: kPrimaryColor),

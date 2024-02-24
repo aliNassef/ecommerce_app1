@@ -1,4 +1,6 @@
+import 'package:ecommerce_app/features/authantication/presentation/manger/authantication/authantication_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
@@ -37,7 +39,10 @@ class SignUpViewBody extends StatelessWidget {
             SizedBox(
               height: 24.h,
             ),
-            const CustomTextFormField(hint: 'enter your full name'),
+            CustomTextFormField(
+              hint: 'enter your full name',
+              controller: context.read<AuthanticationCubit>().signUpName,
+            ),
             SizedBox(
               height: 32.h,
             ),
@@ -48,7 +53,10 @@ class SignUpViewBody extends StatelessWidget {
             SizedBox(
               height: 24.h,
             ),
-            const CustomTextFormField(hint: 'enter your mobile no.'),
+            CustomTextFormField(
+              hint: 'enter your mobile no.',
+              controller: context.read<AuthanticationCubit>().signUpPhone,
+            ),
             SizedBox(
               height: 32.h,
             ),
@@ -59,7 +67,10 @@ class SignUpViewBody extends StatelessWidget {
             SizedBox(
               height: 24.h,
             ),
-            const CustomTextFormField(hint: 'enter your email address'),
+            CustomTextFormField(
+              hint: 'enter your email address',
+              controller: context.read<AuthanticationCubit>().signUpEmail,
+            ),
             SizedBox(
               height: 32.h,
             ),
@@ -78,6 +89,7 @@ class SignUpViewBody extends StatelessWidget {
                 height: 24,
                 width: 24,
               ),
+              controller: context.read<AuthanticationCubit>().signUpPassword,
             ),
             SizedBox(
               height: 56.h,

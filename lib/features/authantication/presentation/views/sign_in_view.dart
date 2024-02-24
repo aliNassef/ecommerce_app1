@@ -1,4 +1,6 @@
+import 'package:ecommerce_app/features/authantication/presentation/manger/authantication/authantication_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'widgets/sign_in_view_body.dart';
 
 class SignInView extends StatelessWidget {
@@ -6,8 +8,11 @@ class SignInView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SignInViewBody(),
+    return Scaffold(
+      body: BlocProvider(
+        create: (context) => AuthanticationCubit(),
+        child: const SignInViewBody(),
+      ),
     );
   }
 }
