@@ -1,15 +1,28 @@
 part of 'authantication_cubit.dart';
 
-final class AuthanticationState {}
+final class AuthState {}
 
-final class AuthanticationInitial extends AuthanticationState {}
+final class SignUpIntial extends AuthState {}
 
-final class LoadingAuthantication extends AuthanticationState {}
+final class LoadingSignUp extends AuthState {}
 
-final class SuccessAuthantication extends AuthanticationState {}
+final class SuccessSignUp extends AuthState {}
 
-final class FailureAuthantication extends AuthanticationState {
+final class FailureSignUp extends AuthState {
   final String errMessage;
 
-  FailureAuthantication({required this.errMessage});
+  FailureSignUp({required this.errMessage});
+}
+
+ 
+final class SignInIntial extends AuthState {}
+
+final class LoadingSignIn extends AuthState {}
+
+final class SuccessSignIn extends AuthState {}
+
+final class FailureSignIn extends AuthState {
+  final String errMessage;
+
+  FailureSignIn({required this.errMessage});
 }

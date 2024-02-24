@@ -2,7 +2,6 @@ import 'package:ecommerce_app/features/authantication/presentation/manger/authan
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
@@ -14,20 +13,20 @@ class SignUpViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AuthanticationCubit, AuthanticationState>(
+    return BlocConsumer<AuthanticationCubit, AuthState>(
       listener: (context, state) {
-        if (state is SuccessAuthantication) {
+        if (state is SuccessSignUp) {
           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
             content: Text('Done'),
           ));
-        } else if (state is FailureAuthantication) {
+        } else if (state is FailureSignUp) {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             content: Text(state.errMessage),
           ));
         }
       },
       builder: (context, state) {
-        if (state is SuccessAuthantication) {
+        if (state is SuccessSignUp) {
           return const Text('Done');
         } else {
           return Padding(

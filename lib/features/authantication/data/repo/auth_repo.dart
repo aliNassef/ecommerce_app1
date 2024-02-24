@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 
+import '../models/sign_in_model/sign_in_model.dart';
 import '../models/sign_up_model/sign_up_model.dart';
 
 abstract class AuthRepo {
@@ -9,5 +10,8 @@ abstract class AuthRepo {
     required String email,
     required String phone,
   });
-//  Future<Either<SignUpModel, String>> signIn();
+  Future<Either<SignInModel, String>> signIn({
+    required String email,
+    required String pass,
+  });
 }

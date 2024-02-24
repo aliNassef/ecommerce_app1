@@ -17,9 +17,6 @@ void main() {
 class EcommerceApp extends StatelessWidget {
   const EcommerceApp({super.key});
 
-//      designSize: const Size(360, 690),
-//
-  //
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(

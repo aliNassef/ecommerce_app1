@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'authantication_state.dart';
 
-class AuthanticationCubit extends Cubit<AuthanticationState> {
-  AuthanticationCubit(this.user) : super(AuthanticationState());
+class AuthanticationCubit extends Cubit<AuthState> {
+  AuthanticationCubit(this.user) : super(AuthState());
   final AuthRepo user;
   TextEditingController signUpName = TextEditingController();
   TextEditingController signUpEmail = TextEditingController();
@@ -15,7 +15,7 @@ class AuthanticationCubit extends Cubit<AuthanticationState> {
   TextEditingController signInEmail = TextEditingController();
   TextEditingController signInPassword = TextEditingController();
   signUp() async {
-    emit(LoadingAuthantication());
+    emit(LoadingSignUp());
     final response = await user.signUp(
       name: signUpName.text,
       pass: signUpPassword.text,
@@ -23,9 +23,25 @@ class AuthanticationCubit extends Cubit<AuthanticationState> {
       phone: signUpPhone.text,
     );
     response.fold(
-      (l) => emit(SuccessAuthantication()),
+      (l) => emit(SuccessSignUp()),
       (r) => emit(
-        FailureAuthantication(
+        FailureSignUp(
+          errMessage: r,
+        ),
+      ),
+    );
+  }
+
+  signIn() async {
+    emit(LoadingSignIn());
+    final response = await user.signIn(
+      pass: signInPassword.text,
+      email: signInEmail.text,
+    );
+    response.fold(
+      (l) => emit(SuccessSignIn()),
+      (r) => emit(
+        FailureSignIn(
           errMessage: r,
         ),
       ),
