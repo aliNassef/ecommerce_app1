@@ -12,7 +12,7 @@ class CustomTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.go('/SignUp');
+        GoRouter.of(context).push('/SignUp');
       },
       child: RichText(
         text: TextSpan(

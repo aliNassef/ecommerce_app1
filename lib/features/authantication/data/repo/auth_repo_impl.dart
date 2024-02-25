@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
- import 'package:ecommerce_app/core/api/api_consumer.dart';
+import 'package:ecommerce_app/core/api/api_consumer.dart';
 import 'package:ecommerce_app/core/api/end_ponits.dart';
 import 'package:ecommerce_app/core/cache/cache_helper.dart';
 import 'package:ecommerce_app/core/errors/exceptions.dart';
@@ -23,16 +23,19 @@ class AuthRepoImpl extends AuthRepo {
     required String phone,
   }) async {
     try {
-      var response = await api.post(EndPoint.signUp, data: {
-        ApiKey.email: email,
-        ApiKey.name: name,
-        ApiKey.password: pass,
-        ApiKey.phone: phone,
-      });
+      var response = await api.post(
+        EndPoint.signUp,
+        data: {
+          ApiKey.email: email,
+          ApiKey.name: name,
+          ApiKey.password: pass,
+          ApiKey.phone: phone,
+        },
+      );
       final user = SignUpModel.fromJson(response);
       return Left(user);
     } on ServerException catch (e) {
-      return Right(e.errModel.message!);
+      return Right(e.errModel.errors?.msg ?? e.errModel.message!);
     }
   }
 
