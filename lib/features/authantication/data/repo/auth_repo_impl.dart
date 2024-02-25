@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
-import 'package:ecommerce_app/core/api/api_consumer.dart';
+ import 'package:ecommerce_app/core/api/api_consumer.dart';
 import 'package:ecommerce_app/core/api/end_ponits.dart';
 import 'package:ecommerce_app/core/cache/cache_helper.dart';
 import 'package:ecommerce_app/core/errors/exceptions.dart';
