@@ -2,7 +2,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
- import '../utils/styles.dart';
+import '../utils/styles.dart';
 
 AwesomeDialog awesomeDialogMethod(BuildContext context, String errMessage) {
   return AwesomeDialog(
