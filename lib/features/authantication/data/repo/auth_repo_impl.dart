@@ -1,10 +1,13 @@
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:ecommerce_app/core/api/api_consumer.dart';
 import 'package:ecommerce_app/core/api/end_ponits.dart';
 import 'package:ecommerce_app/core/cache/cache_helper.dart';
 import 'package:ecommerce_app/core/errors/exceptions.dart';
+import 'package:ecommerce_app/features/authantication/data/models/forget_pass_model.dart';
 import 'package:ecommerce_app/features/authantication/data/models/sign_in_model/sign_in_model.dart';
 import 'package:ecommerce_app/features/authantication/data/models/sign_up_model/sign_up_model.dart';
+import 'package:ecommerce_app/features/authantication/data/models/user_model/user_model.dart';
 import 'package:ecommerce_app/features/authantication/data/repo/auth_repo.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 
@@ -53,5 +56,76 @@ class AuthRepoImpl extends AuthRepo {
     } on ServerException catch (e) {
       return Right(e.errModel.message!);
     }
+  }
+
+  @override
+  Future<ForgetPassModel> forgetPass({required String email}) async {
+    final respone = await api.post(
+      EndPoint.forgetPass,
+      data: {
+        ApiKey.email: email,
+      },
+    );
+    final user = ForgetPassModel.fromJson(respone);
+    return user;
+  }
+
+  @override
+  Future<ForgetPassModel> verifyResetCode({required String resetCode}) async {
+    final respone = await api.post(
+      EndPoint.verifyResetCode,
+      data: {
+        ApiKey.email: resetCode,
+      },
+    );
+    final user = ForgetPassModel.fromJson(respone);
+    return user;
+  }
+
+  @override
+  Future<ForgetPassModel> changePass(
+      {required String oldPass,
+      required String newPass,
+      required String reNewPass}) async {
+    final response = await api.patch(EndPoint.changePass, data: {
+      ApiKey.currentPassword: oldPass,
+      ApiKey.password: newPass,
+      ApiKey.repass: reNewPass,
+    });
+    final user = ForgetPassModel.fromJson(response);
+    return user;
+  }
+
+  @override
+  Future<ForgetPassModel> reSetPass(
+      {required String email, required String newPass}) async {
+    final response = await api.patch(EndPoint.changePass, data: {
+      ApiKey.email: email,
+      ApiKey.newPass: newPass,
+    });
+    final user = ForgetPassModel.fromJson(response);
+    return user;
+  }
+
+  @override
+  Future<ForgetPassModel> updateUserData({
+    required String email,
+    required String pass,
+    required String phone,
+  }) async {
+    final response = await api.patch(EndPoint.updateUser, data: {
+      ApiKey.email: email,
+      ApiKey.password: pass,
+      ApiKey.phone: phone,
+    });
+    final user = ForgetPassModel.fromJson(response);
+    return user;
+  }
+
+  @override
+  Future<UserModel> getAllUser() async {
+    final response = await api.get(EndPoint.allusers);
+    final user = UserModel.fromJson(response);
+    return user;
   }
 }

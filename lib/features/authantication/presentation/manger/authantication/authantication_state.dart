@@ -14,7 +14,6 @@ final class FailureSignUp extends AuthState {
   FailureSignUp({required this.errMessage});
 }
 
- 
 final class SignInIntial extends AuthState {}
 
 final class LoadingSignIn extends AuthState {}
