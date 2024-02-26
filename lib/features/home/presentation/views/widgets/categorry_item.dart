@@ -1,25 +1,25 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommerce_app/features/home/data/models/categorey_model/categorey_model.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
 
 class CategoryItem extends StatelessWidget {
-  const CategoryItem({super.key});
-
+  const CategoryItem({super.key, required this.category});
+  final CategoreyModel category;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 16),
       child: Column(
         children: [
-          const CircleAvatar(
+          CircleAvatar(
             radius: 40,
-            backgroundImage: AssetImage(
-              ImageData.menFashion,
-            ),
+            // image not equal null sin api
+            backgroundImage: NetworkImage(category.image!),
           ),
           Text(
-            'men’s\nfashion',
+            category.name!,
             style: Styles.textStyle14.copyWith(
               fontWeight: FontWeight.w400,
               color: const Color(0xFF06004F),
