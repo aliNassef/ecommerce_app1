@@ -16,7 +16,7 @@ class CustomCategoryListView extends StatelessWidget {
       height: 160.h,
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
-        itemCount: 5,
+        itemCount: categories.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return CategoryItem(
