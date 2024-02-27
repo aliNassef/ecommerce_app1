@@ -8,6 +8,7 @@ class EndPoint {
   static String updateUser = 'api/v1/users/updateMe/';
   static String resetPass = 'api/v1/auth/resetPassword';
   static String allusers = 'api/v1/users';
+  static String allSubCategories = 'api/v1/subcategories';
 }
 
 class ApiKey {
