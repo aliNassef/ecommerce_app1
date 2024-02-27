@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/features/home/data/models/sub_category_model/sub_category_model.dart';
+import '../../../../data/models/sub_category_model/datum.dart';
 
 class SubCategoryState {}
 
@@ -7,7 +7,7 @@ final class SubCategoryInitial extends SubCategoryState {}
 class SubCategoryLoading extends SubCategoryState {}
 
 class SubCategorySuccess extends SubCategoryState {
-  final List<SubCategoryModel> subCategories;
+  final List<Datum> subCategories;
 
   SubCategorySuccess({required this.subCategories});
 }

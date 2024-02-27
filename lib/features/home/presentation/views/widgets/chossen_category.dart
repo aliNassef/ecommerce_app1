@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/features/home/data/models/sub_category_model/sub_category_model.dart';
 import 'package:ecommerce_app/features/home/presentation/views/widgets/un_chossen_category.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -5,13 +6,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../constants.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
+import '../../../data/models/sub_category_model/datum.dart';
 
 class ChoosenCategory extends StatelessWidget {
   const ChoosenCategory({
     super.key,
     required this.isActive,
+    required this.model,
   });
   final bool isActive;
+  final Datum model;
   @override
   Widget build(BuildContext context) {
     return isActive
@@ -29,18 +33,22 @@ class ChoosenCategory extends StatelessWidget {
                         height: 72.h,
                       ),
                     ),
-                    Center(
-                      child: Text(
-                        'Men’s Fashion',
-                        style: Styles.textStyle14.copyWith(
-                          color: kTextColor,
-                          fontWeight: FontWeight.w500,
+                    Expanded(
+                      child: Center(
+                        child: Text(
+                          model.name!,
+                          style: Styles.textStyle14.copyWith(
+                            color: kTextColor,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
                     ),
                   ],
                 )),
           )
-        : const UnChossenCategory();
+        : UnChossenCategory(
+            model: model,
+          );
   }
 }
