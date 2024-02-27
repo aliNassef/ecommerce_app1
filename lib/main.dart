@@ -3,7 +3,7 @@ import 'package:ecommerce_app/core/api/server_locator.dart';
 import 'package:ecommerce_app/core/utils/app_router.dart';
 import 'package:ecommerce_app/features/authantication/data/repo/auth_repo_impl.dart';
 import 'package:ecommerce_app/features/authantication/presentation/manger/authantication/authantication_cubit.dart';
-import 'package:ecommerce_app/features/home/data/repos/home_repo_impl.dart';
+import 'package:ecommerce_app/features/home/data/repos/home_repo/home_repo_impl.dart';
 import 'package:ecommerce_app/features/home/presentation/views/manger/category_cubit/categories_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

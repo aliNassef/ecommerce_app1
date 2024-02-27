@@ -2,9 +2,9 @@ import 'package:dartz/dartz.dart';
 import 'package:ecommerce_app/core/api/api_consumer.dart';
 import 'package:ecommerce_app/core/errors/exceptions.dart';
 
-import 'package:ecommerce_app/features/home/data/repos/home_repo.dart';
+import 'package:ecommerce_app/features/home/data/repos/home_repo/home_repo.dart';
 
-import '../models/categorey_model/categorey_model.dart';
+import '../../models/categorey_model/categorey_model.dart';
 
 class HomeRepoImpl implements HomeRepo {
   final ApiConsumer api;

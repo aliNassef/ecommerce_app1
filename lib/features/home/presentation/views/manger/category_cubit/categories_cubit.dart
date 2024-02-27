@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/features/home/data/repos/home_repo.dart';
+import 'package:ecommerce_app/features/home/data/repos/home_repo/home_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'categories_state.dart';
