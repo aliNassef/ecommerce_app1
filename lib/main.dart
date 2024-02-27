@@ -5,12 +5,14 @@ import 'package:ecommerce_app/features/authantication/data/repo/auth_repo_impl.d
 import 'package:ecommerce_app/features/authantication/presentation/manger/authantication/authantication_cubit.dart';
 import 'package:ecommerce_app/features/home/data/repos/home_repo/home_repo_impl.dart';
 import 'package:ecommerce_app/features/home/presentation/views/manger/category_cubit/categories_cubit.dart';
+import 'package:ecommerce_app/features/home/presentation/views/manger/sub_category/sub_category_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'core/cache/cache_helper.dart';
+import 'features/home/data/repos/sub_category_repo/sub_category_repo_impl.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,6 +37,10 @@ class EcommerceApp extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => CategoriesCubit(getIt.get<HomeRepoImpl>()),
+          ),
+          BlocProvider(
+            create: (context) =>
+                SubCategoryCubit(getIt.get<SubCategoryRepoImpl>()),
           ),
         ],
         child: MaterialApp.router(
