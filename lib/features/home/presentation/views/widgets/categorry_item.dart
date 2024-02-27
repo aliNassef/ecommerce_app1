@@ -1,4 +1,4 @@
- import 'package:ecommerce_app/features/home/data/models/categorey_model/categorey_model.dart';
+import 'package:ecommerce_app/features/home/data/models/categorey_model/categorey_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';

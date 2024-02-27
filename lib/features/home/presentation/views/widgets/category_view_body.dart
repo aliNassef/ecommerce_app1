@@ -8,14 +8,9 @@ import 'custom_app_bar.dart';
 import 'custom_category_list_view_for_choosen.dart';
 import 'custom_grid_view.dart';
 
-class CategoryViewBody extends StatefulWidget {
+class CategoryViewBody extends StatelessWidget {
   const CategoryViewBody({super.key});
 
-  @override
-  State<CategoryViewBody> createState() => _CategoryViewBodyState();
-}
-
-class _CategoryViewBodyState extends State<CategoryViewBody> {
   @override
   Widget build(BuildContext context) {
     return Column(
