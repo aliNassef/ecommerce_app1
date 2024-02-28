@@ -1,4 +1,3 @@
-import 'package:ecommerce_app/features/authantication/presentation/views/sign_up_view.dart';
 import 'package:ecommerce_app/features/cart/presentation/views/cart_view.dart';
 import 'package:ecommerce_app/features/home/presentation/views/home_view.dart';
 import 'package:ecommerce_app/features/home/presentation/views/product_list_view.dart';
@@ -7,7 +6,8 @@ import 'package:ecommerce_app/features/splash/presentation/views/splash_view.dar
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../features/authantication/presentation/views/sign_in_view.dart';
+import '../../features/auth/presentation/views/sign_in_view.dart';
+import '../../features/auth/presentation/views/sign_up_view.dart';
 
 abstract class AppRouter {
   static final GoRouter router = GoRouter(

@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:ecommerce_app/features/authantication/data/models/user_model/user_model.dart';
 
 import '../models/forget_pass_model.dart';
 import '../models/sign_in_model/sign_in_model.dart';
 import '../models/sign_up_model/sign_up_model.dart';
+import '../models/user_model/user_model.dart';
 
 abstract class AuthRepo {
   Future<Either<SignUpModel, String>> signUp({

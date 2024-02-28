@@ -3,12 +3,13 @@ import 'package:ecommerce_app/core/api/api_consumer.dart';
 import 'package:ecommerce_app/core/api/end_ponits.dart';
 import 'package:ecommerce_app/core/cache/cache_helper.dart';
 import 'package:ecommerce_app/core/errors/exceptions.dart';
-import 'package:ecommerce_app/features/authantication/data/models/forget_pass_model.dart';
-import 'package:ecommerce_app/features/authantication/data/models/sign_in_model/sign_in_model.dart';
-import 'package:ecommerce_app/features/authantication/data/models/sign_up_model/sign_up_model.dart';
-import 'package:ecommerce_app/features/authantication/data/models/user_model/user_model.dart';
-import 'package:ecommerce_app/features/authantication/data/repo/auth_repo.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
+
+import '../models/forget_pass_model.dart';
+import '../models/sign_in_model/sign_in_model.dart';
+import '../models/sign_up_model/sign_up_model.dart';
+import '../models/user_model/user_model.dart';
+import 'auth_repo.dart';
 
 class AuthRepoImpl extends AuthRepo {
   final ApiConsumer api;
