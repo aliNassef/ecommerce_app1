@@ -1,5 +1,4 @@
 import 'package:ecommerce_app/core/helper/awesome_dialog_method.dart';
-import 'package:ecommerce_app/features/home/data/models/sub_category_model/sub_category_model.dart';
 import 'package:ecommerce_app/features/home/presentation/views/manger/sub_category/sub_category_cubit.dart';
 import 'package:ecommerce_app/features/home/presentation/views/manger/sub_category/sub_category_state.dart';
 import 'package:ecommerce_app/features/home/presentation/views/widgets/chossen_category.dart';

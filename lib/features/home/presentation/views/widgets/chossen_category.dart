@@ -1,5 +1,4 @@
-import 'package:ecommerce_app/features/home/data/models/sub_category_model/sub_category_model.dart';
-import 'package:ecommerce_app/features/home/presentation/views/widgets/un_chossen_category.dart';
+ import 'package:ecommerce_app/features/home/presentation/views/widgets/un_chossen_category.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
