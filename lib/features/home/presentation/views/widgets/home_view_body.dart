@@ -6,11 +6,13 @@ import 'package:ecommerce_app/features/home/presentation/views/manger/category_c
 import 'package:ecommerce_app/features/home/presentation/views/manger/category_cubit/categories_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 import 'custom_app_bar.dart';
 import 'custom_category_list_view.dart';
 import 'custom_cateory_button.dart';
+import 'custom_home_view_body_offers.dart';
 
 class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
@@ -20,22 +22,13 @@ class HomeViewBody extends StatefulWidget {
 }
 
 class _HomeViewBodyState extends State<HomeViewBody> {
-  int _pos = 0;
+  final int _pos = 0;
 
   Timer? _timer;
   @override
   void initState() {
     context.read<CategoriesCubit>().fetchCategories();
-    _timer = Timer.periodic(
-      const Duration(
-        seconds: 5,
-      ),
-      (timer) {
-        setState(() {
-          _pos = (_pos + 1) % kOffers.length;
-        });
-      },
-    );
+
     super.initState();
   }
 
@@ -65,11 +58,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                     SizedBox(
                       height: 200.h,
                       width: 398.w,
-                      child: Image.asset(
-                        fit: BoxFit.fill,
-                        gaplessPlayback: true,
-                        kOffers[_pos],
-                      ),
+                      child: const CustomHomeViewBodyOffers(),
                     ),
                     const CustomCategoryButton(),
                     CustomCategoryListView(categories: categorries),
@@ -168,11 +157,5 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         }
       },
     );
-  }
-
-  @override
-  void dispose() {
-    _timer!.cancel();
-    super.dispose();
   }
 }
