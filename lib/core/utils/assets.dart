@@ -27,4 +27,6 @@ abstract class ImageData {
   static const trash = 'assets/images/trash.png';
   static const fav = 'assets/images/fav.png';
   static const unfav = 'assets/images/un_fav.png';
+  static const loveIcon = 'assets/images/love_icon.png';
+  static const loveIcon2 = 'assets/images/love_icon2.png';
 }

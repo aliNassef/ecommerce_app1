@@ -14,13 +14,11 @@ class UnChossenCategory extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 8, top: 32),
-      child: Expanded(
-        child: Text(
-          model.name!,
-          style: Styles.textStyle14.copyWith(
-            color: kTextColor,
-            fontWeight: FontWeight.w500,
-          ),
+      child: Text(
+        model.name!,
+        style: Styles.textStyle14.copyWith(
+          color: kTextColor,
+          fontWeight: FontWeight.w500,
         ),
       ),
     );
