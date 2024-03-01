@@ -25,9 +25,39 @@ class _CategoryViewBodyState extends State<CategoryViewBody> {
         SizedBox(
           height: 16.h,
         ),
-        const Row(
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CustomCategoryListViewForChoose(),
+            const CustomCategoryListViewForChoose(),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    'Men’s Fashion',
+                    style: Styles.textStyle14.copyWith(
+                      color: kTextColor,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 16.h,
+                  ),
+                  Image.asset(
+                    ImageData.fashin,
+                    height: 94.h,
+                    width: 237.w,
+                  ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  SizedBox(
+                      height: MediaQuery.of(context).size.height * .55,
+                      child: const CustomGridView()),
+                ],
+              ),
+            ),
           ],
         )
       ],

@@ -11,27 +11,25 @@ class CustomGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: GridView.builder(
-        itemCount: 3,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          mainAxisSpacing: 0,
-        ),
-        itemBuilder: (context, index) {
-          return GestureDetector(
-            child: const GridViewItem(),
-            onTap: () {
-              PersistentNavBarNavigator.pushNewScreen(
-                context,
-                screen: const ProductlistView(),
-                withNavBar: true, // OPTIONAL VALUE. True by default.
-                //       pageTransitionAnimation: PageTransitionAnimation.cupertino,
-              );
-            },
-          );
-        },
+    return GridView.builder(
+      itemCount: 3,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisSpacing: 0,
       ),
+      itemBuilder: (context, index) {
+        return GestureDetector(
+          child: const GridViewItem(),
+          onTap: () {
+            PersistentNavBarNavigator.pushNewScreen(
+              context,
+              screen: const ProductlistView(),
+              withNavBar: true, // OPTIONAL VALUE. True by default.
+              //       pageTransitionAnimation: PageTransitionAnimation.cupertino,
+            );
+          },
+        );
+      },
     );
   }
 }
