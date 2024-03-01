@@ -1,13 +1,11 @@
-import 'dart:async';
-import 'package:ecommerce_app/constants.dart';
+ import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:ecommerce_app/features/home/data/models/categorey_model/categorey_model.dart';
 import 'package:ecommerce_app/features/home/presentation/views/manger/category_cubit/categories_cubit.dart';
 import 'package:ecommerce_app/features/home/presentation/views/manger/category_cubit/categories_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 import 'custom_app_bar.dart';
 import 'custom_category_list_view.dart';
@@ -22,9 +20,7 @@ class HomeViewBody extends StatefulWidget {
 }
 
 class _HomeViewBodyState extends State<HomeViewBody> {
-  final int _pos = 0;
-
-  Timer? _timer;
+ 
   @override
   void initState() {
     context.read<CategoriesCubit>().fetchCategories();
@@ -113,11 +109,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                     SizedBox(
                       height: 200.h,
                       width: 398.w,
-                      child: Image.asset(
-                        fit: BoxFit.fill,
-                        gaplessPlayback: true,
-                        kOffers[_pos],
-                      ),
+                      child: const CustomHomeViewBodyOffers(),
                     ),
                     const CustomCategoryButton(),
                     Shimmer.fromColors(
