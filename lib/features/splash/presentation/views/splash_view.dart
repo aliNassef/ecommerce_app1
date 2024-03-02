@@ -1,3 +1,5 @@
+import 'package:ecommerce_app/core/api/end_ponits.dart';
+import 'package:ecommerce_app/core/cache/cache_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -17,7 +19,9 @@ class _SplashViewState extends State<SplashView> {
     Future.delayed(
       const Duration(seconds: 5),
       () {
-        context.go('/SignIn');
+        CacheHelper().getData(key: ApiKey.token) == null
+            ? context.go('/SignIn')
+            : context.go('/HomeView');
       },
     );
   }

@@ -39,8 +39,7 @@ class EcommerceApp extends StatelessWidget {
             create: (context) => CategoriesCubit(getIt.get<HomeRepoImpl>()),
           ),
           BlocProvider(
-            create: (context) =>
-                SubCategoryCubit(getIt.get<SubCategoryRepoImpl>()),
+            create: (context) => BrandCategoryCubit(getIt.get<HomeRepoImpl>()),
           ),
         ],
         child: MaterialApp.router(
