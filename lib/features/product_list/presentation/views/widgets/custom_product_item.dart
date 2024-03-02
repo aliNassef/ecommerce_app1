@@ -14,8 +14,8 @@ class CustomProductItem extends StatelessWidget {
       children: [
         const CustomProduct(),
         Positioned(
-          bottom: 180.h,
-          left: 105.w,
+          bottom: 237.h,
+          left: 125.w,
           child: IconButton(
             onPressed: () {},
             icon: Image.asset(ImageData.unfav),
