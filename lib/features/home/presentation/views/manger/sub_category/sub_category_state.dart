@@ -1,19 +1,19 @@
-import '../../../../data/models/sub_category_model/datum.dart';
+import '../../../../data/models/categorey_model/categorey_model.dart';
 
-class SubCategoryState {}
+class BrandCategoryState {}
 
-final class SubCategoryInitial extends SubCategoryState {}
+final class BrandCategoryInitial extends BrandCategoryState {}
 
-class SubCategoryLoading extends SubCategoryState {}
+class LoadingBrandCategories extends BrandCategoryState {}
 
-class SubCategorySuccess extends SubCategoryState {
-  final List<Datum> subCategories;
+class SuccessFetchBrandCategories extends BrandCategoryState {
+  final List<CategoreyModel> categories;
 
-  SubCategorySuccess({required this.subCategories});
+  SuccessFetchBrandCategories({required this.categories});
 }
 
-class SubCategoryFailure extends SubCategoryState {
+class FailureFetchBrandCategories extends BrandCategoryState {
   final String errMessage;
 
-  SubCategoryFailure({required this.errMessage});
+  FailureFetchBrandCategories({required this.errMessage});
 }

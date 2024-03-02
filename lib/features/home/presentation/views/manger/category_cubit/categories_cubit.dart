@@ -16,4 +16,5 @@ class CategoriesCubit extends Cubit<CategoriesState> {
       (r) => emit(FailureFetchCategories(errMessage: r)),
     );
   }
+ 
 }

@@ -9,6 +9,8 @@ class EndPoint {
   static String resetPass = 'api/v1/auth/resetPassword';
   static String allusers = 'api/v1/users';
   static String allSubCategories = 'api/v1/subcategories';
+  static String brands = 'api/v1/brands?limit=10';
+  static String allCategories = 'api/v1/categories';
 }
 
 class ApiKey {
@@ -25,4 +27,5 @@ class ApiKey {
   static String name = "name";
   static String role = 'role';
   static String phone = "phone";
+  static String data = 'data';
 }
