@@ -21,7 +21,7 @@ class CustomProduct extends StatelessWidget {
             borderRadius: BorderRadiusDirectional.circular(15),
             border: Border.all(
               color: const Color(0xff004182).withOpacity(0.3),
-              width: 2,
+              width: 2.w,
             ),
           ),
           child: Column(
@@ -31,7 +31,7 @@ class CustomProduct extends StatelessWidget {
                 ImageData.product,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 8, top: 8),
+                padding: EdgeInsets.only(left: 8.w, top: 8.h),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -62,10 +62,10 @@ class CustomProduct extends StatelessWidget {
                           TextSpan(
                             text: '2000 EGP',
                             style: Styles.textStyle14.copyWith(
-                              fontSize: 11,
+                              fontSize: 11.sp,
                               fontWeight: FontWeight.w400,
                               decoration: TextDecoration.lineThrough,
-                              height: 2.4,
+                              height: 3.h,
                               color: const Color(0xff004182).withOpacity(0.6),
                             ),
                           ),
