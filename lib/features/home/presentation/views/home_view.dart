@@ -1,12 +1,13 @@
 import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/core/utils/assets.dart';
 import 'package:ecommerce_app/features/favorite/presentation/views/favorite_view.dart';
-import 'package:ecommerce_app/features/home/presentation/views/category_view.dart';
 import 'package:ecommerce_app/features/home/presentation/views/widgets/home_view_body.dart';
 import 'package:ecommerce_app/features/setting/presentations/views/setting_view.dart';
 import 'package:flutter/material.dart';
 
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+
+import '../../../product_list/presentation/views/product_list_view.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -23,7 +24,7 @@ class HomeView extends StatelessWidget {
       controller: controller,
       screens: const [
         HomeViewBody(),
-        CategoryView(),
+        ProductListView(),
         FavoriteView(),
         SettingView()
       ],
