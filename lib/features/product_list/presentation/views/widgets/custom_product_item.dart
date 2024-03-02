@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/utils/assets.dart';
 import 'custom_product.dart';
@@ -14,8 +14,8 @@ class CustomProductItem extends StatelessWidget {
       children: [
         const CustomProduct(),
         Positioned(
-          bottom: 180,
-          left: 105,
+          bottom: 180.h,
+          left: 105.w,
           child: IconButton(
             onPressed: () {},
             icon: Image.asset(ImageData.unfav),
