@@ -31,7 +31,7 @@ class CustomProduct extends StatelessWidget {
                 ImageData.product,
               ),
               Padding(
-                padding: EdgeInsets.only(left: 8.w, top: 8.h),
+                padding: EdgeInsets.only(left: 8.w, top: 15.h),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
