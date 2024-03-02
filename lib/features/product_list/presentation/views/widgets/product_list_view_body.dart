@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../home/presentation/views/widgets/custom_app_bar.dart';
-import 'custom_product.dart';
 import 'custom_product_item.dart';
 
 class ProductListViewBody extends StatelessWidget {
