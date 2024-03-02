@@ -1,6 +1,5 @@
 import 'package:ecommerce_app/features/cart/presentation/views/cart_view.dart';
 import 'package:ecommerce_app/features/home/presentation/views/home_view.dart';
-import 'package:ecommerce_app/features/home/presentation/views/product_list_view.dart';
 import 'package:ecommerce_app/features/product_details/presentation/views/product_details_view.dart';
 import 'package:ecommerce_app/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -34,12 +33,6 @@ abstract class AppRouter {
             path: 'HomeView',
             builder: (BuildContext context, GoRouterState state) {
               return const HomeView();
-            },
-          ),
-          GoRoute(
-            path: 'ProductView',
-            builder: (BuildContext context, GoRouterState state) {
-              return const ProductlistView();
             },
           ),
           GoRoute(
