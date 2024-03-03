@@ -122,66 +122,62 @@ class _HomeViewBodyState extends State<HomeViewBody> {
     );
   }
 }
-   
 
-      //  Scaffold(
-      //       backgroundColor: Colors.white,
-      //       body: Center(
-      //         child: Text(
-      //           state.errMessage,
-      //           style: Styles.textStyle18.copyWith(
-      //             color: kTextColor,
-      //           ),
-      //         ),
-      //       ),
-      //     );
+//  Scaffold(
+//       backgroundColor: Colors.white,
+//       body: Center(
+//         child: Text(
+//           state.errMessage,
+//           style: Styles.textStyle18.copyWith(
+//             color: kTextColor,
+//           ),
+//         ),
+//       ),
+//     );
 
-
-
-      // Scaffold(
-      //       backgroundColor: Colors.white,
-      //       body: SafeArea(
-      //         child: SingleChildScrollView(
-      //           child: Column(
-      //             children: [
-      //               const CustomAppBar(),
-      //               const SizedBox(
-      //                 height: 10,
-      //               ),
-      //               SizedBox(
-      //                 height: 200.h,
-      //                 width: 398.w,
-      //                 child: const CustomHomeViewBodyOffers(),
-      //               ),
-      //               const CustomCategoryButton(),
-      //               Shimmer.fromColors(
-      //                 baseColor: Colors.grey.shade400,
-      //                 highlightColor: Colors.white,
-      //                 child: CustomCategoryListView(categories: categorries),
-      //               ),
-      //               SizedBox(
-      //                 height: 16.h,
-      //               ),
-      //               
-      //               SizedBox(
-      //                 height: 24.h,
-      //               ),
-      //               Padding(
-      //                 padding: const EdgeInsets.only(left: 16),
-      //                 child: Align(
-      //                   alignment: Alignment.topLeft,
-      //                   child: Text(
-      //                     'Home Appliance',
-      //                     style: Styles.textStyle18.copyWith(
-      //                       color: kTextColor,
-      //                       fontWeight: FontWeight.w500,
-      //                     ),
-      //                   ),
-      //                 ),
-      //               ),
-      //             ],
-      //           ),
-      //         ),
-      //       ),
-      //     );
-      
+// Scaffold(
+//       backgroundColor: Colors.white,
+//       body: SafeArea(
+//         child: SingleChildScrollView(
+//           child: Column(
+//             children: [
+//               const CustomAppBar(),
+//               const SizedBox(
+//                 height: 10,
+//               ),
+//               SizedBox(
+//                 height: 200.h,
+//                 width: 398.w,
+//                 child: const CustomHomeViewBodyOffers(),
+//               ),
+//               const CustomCategoryButton(),
+//               Shimmer.fromColors(
+//                 baseColor: Colors.grey.shade400,
+//                 highlightColor: Colors.white,
+//                 child: CustomCategoryListView(categories: categorries),
+//               ),
+//               SizedBox(
+//                 height: 16.h,
+//               ),
+//
+//               SizedBox(
+//                 height: 24.h,
+//               ),
+//               Padding(
+//                 padding: const EdgeInsets.only(left: 16),
+//                 child: Align(
+//                   alignment: Alignment.topLeft,
+//                   child: Text(
+//                     'Home Appliance',
+//                     style: Styles.textStyle18.copyWith(
+//                       color: kTextColor,
+//                       fontWeight: FontWeight.w500,
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
