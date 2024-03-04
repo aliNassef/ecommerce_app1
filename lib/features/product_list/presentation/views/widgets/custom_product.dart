@@ -4,10 +4,11 @@ import 'package:go_router/go_router.dart';
 import '../../../../../constants.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
+import '../../../data/models/product_list_model/datum.dart';
 
 class CustomProduct extends StatelessWidget {
-  const CustomProduct({super.key});
-
+  const CustomProduct({super.key, required this.data});
+  final Datum data;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -27,8 +28,15 @@ class CustomProduct extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset(
-                ImageData.product,
+              ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.network(
+                  //  color: Colors.black,
+                  data.imageCover!,
+                  height: 130.h,
+                  fit: BoxFit.fill,
+                  width: double.infinity,
+                ),
               ),
               Padding(
                 padding: EdgeInsets.only(left: 8.w, top: 15.h),
@@ -36,14 +44,15 @@ class CustomProduct extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Nike Air Jordon',
+                      data.title!,
                       style: Styles.textStyle14.copyWith(
                         color: kTextColor,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
                     Text(
-                      'Nike shoes flexible for wo..',
+                      data.description!,
+                      maxLines: 2,
                       style: Styles.textStyle14.copyWith(
                         color: kTextColor,
                         fontWeight: FontWeight.w400,
@@ -53,7 +62,7 @@ class CustomProduct extends StatelessWidget {
                       TextSpan(
                         children: [
                           TextSpan(
-                            text: 'EGP 1,200 ',
+                            text: '${data.price}',
                             style: Styles.textStyle14.copyWith(
                               color: kTextColor,
                               fontWeight: FontWeight.w400,
