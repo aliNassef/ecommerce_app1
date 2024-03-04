@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/features/cart/presentation/views/cart_view.dart';
 import 'package:ecommerce_app/features/home/presentation/views/home_view.dart';
 import 'package:ecommerce_app/features/product_details/presentation/views/product_details_view.dart';
+import 'package:ecommerce_app/features/product_list/data/models/product_list_model/datum.dart';
 import 'package:ecommerce_app/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -38,7 +39,7 @@ abstract class AppRouter {
           GoRoute(
             path: 'ProdductDetails',
             builder: (BuildContext context, GoRouterState state) {
-              return const ProductDetailsView();
+              return ProductDetailsView(data: state.extra as Datum);
             },
           ),
           GoRoute(

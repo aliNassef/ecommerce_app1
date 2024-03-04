@@ -1,18 +1,19 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../constants.dart';
-import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
+import '../../../data/models/product_list_model/datum.dart';
 
 class CustomProduct extends StatelessWidget {
-  const CustomProduct({super.key});
-
+  const CustomProduct({super.key, required this.data});
+  final Datum data;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push('/ProdductDetails');
+        GoRouter.of(context).push('/ProdductDetails', extra: data);
       },
       child: AspectRatio(
         aspectRatio: 191 / 273,
@@ -27,8 +28,20 @@ class CustomProduct extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset(
-                ImageData.product,
+              ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: CachedNetworkImage(
+                  height: 130.h,
+                  width: double.infinity.w,
+                  fit: BoxFit.fill,
+                  imageUrl: data.imageCover!,
+                  placeholder: (context, url) => const Center(
+                    child: CircularProgressIndicator(
+                      color: kPrimaryColor,
+                    ),
+                  ),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                ),
               ),
               Padding(
                 padding: EdgeInsets.only(left: 8.w, top: 15.h),
@@ -36,14 +49,16 @@ class CustomProduct extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Nike Air Jordon',
+                      data.title!,
+                      maxLines: 1,
                       style: Styles.textStyle14.copyWith(
                         color: kTextColor,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
                     Text(
-                      'Nike shoes flexible for wo..',
+                      data.description!,
+                      maxLines: 2,
                       style: Styles.textStyle14.copyWith(
                         color: kTextColor,
                         fontWeight: FontWeight.w400,
@@ -53,18 +68,21 @@ class CustomProduct extends StatelessWidget {
                       TextSpan(
                         children: [
                           TextSpan(
-                            text: 'EGP 1,200 ',
+                            text:
+                                '${data.priceAfterDiscount ?? data.price} EGP   ',
                             style: Styles.textStyle14.copyWith(
                               color: kTextColor,
                               fontWeight: FontWeight.w400,
                             ),
                           ),
                           TextSpan(
-                            text: '2000 EGP',
+                            text: '  ${data.price} EGP',
                             style: Styles.textStyle14.copyWith(
                               fontSize: 11.sp,
                               fontWeight: FontWeight.w400,
                               decoration: TextDecoration.lineThrough,
+                              decorationColor:
+                                  const Color(0xff004182).withOpacity(0.6),
                               height: 3.h,
                               color: const Color(0xff004182).withOpacity(0.6),
                             ),
@@ -77,7 +95,7 @@ class CustomProduct extends StatelessWidget {
                       child: Row(
                         children: [
                           Text(
-                            'Review (4.6) ',
+                            'Review (${data.ratingsAverage}) ',
                             style: Styles.textStyle14.copyWith(
                               fontSize: 12.sp,
                               color: kTextColor,
