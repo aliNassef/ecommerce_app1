@@ -15,7 +15,7 @@ class ProductListRepoImpl extends ProductListRepo {
       var data = await api.get(EndPoint.allProduct);
       List<Datum> products = [];
       for (var item in data['data']) {
-        products.add(item);
+        products.add(Datum.fromJson(item));
       }
       return Left(products);
     } on ServerException catch (e) {
