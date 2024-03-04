@@ -11,6 +11,7 @@ class EndPoint {
   static String allSubCategories = 'api/v1/subcategories';
   static String brands = 'api/v1/brands?limit=10';
   static String allCategories = 'api/v1/categories';
+  static String allProduct = 'api/v1/products';
 }
 
 class ApiKey {
