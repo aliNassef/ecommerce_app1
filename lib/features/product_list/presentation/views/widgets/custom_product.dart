@@ -1,8 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../constants.dart';
-import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../data/models/product_list_model/datum.dart';
 
@@ -13,7 +13,7 @@ class CustomProduct extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push('/ProdductDetails');
+        GoRouter.of(context).push('/ProdductDetails', extra: data);
       },
       child: AspectRatio(
         aspectRatio: 191 / 273,
@@ -30,12 +30,17 @@ class CustomProduct extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(12),
-                child: Image.network(
-                  //  color: Colors.black,
-                  data.imageCover!,
+                child: CachedNetworkImage(
                   height: 130.h,
+                  width: double.infinity.w,
                   fit: BoxFit.fill,
-                  width: double.infinity,
+                  imageUrl: data.imageCover!,
+                  placeholder: (context, url) => const Center(
+                    child: CircularProgressIndicator(
+                      color: kPrimaryColor,
+                    ),
+                  ),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
               Padding(
@@ -45,6 +50,7 @@ class CustomProduct extends StatelessWidget {
                   children: [
                     Text(
                       data.title!,
+                      maxLines: 1,
                       style: Styles.textStyle14.copyWith(
                         color: kTextColor,
                         fontWeight: FontWeight.w400,
@@ -62,18 +68,21 @@ class CustomProduct extends StatelessWidget {
                       TextSpan(
                         children: [
                           TextSpan(
-                            text: '${data.price}',
+                            text:
+                                '${data.priceAfterDiscount ?? data.price} EGP   ',
                             style: Styles.textStyle14.copyWith(
                               color: kTextColor,
                               fontWeight: FontWeight.w400,
                             ),
                           ),
                           TextSpan(
-                            text: '2000 EGP',
+                            text: '  ${data.price} EGP',
                             style: Styles.textStyle14.copyWith(
                               fontSize: 11.sp,
                               fontWeight: FontWeight.w400,
                               decoration: TextDecoration.lineThrough,
+                              decorationColor:
+                                  const Color(0xff004182).withOpacity(0.6),
                               height: 3.h,
                               color: const Color(0xff004182).withOpacity(0.6),
                             ),
@@ -86,7 +95,7 @@ class CustomProduct extends StatelessWidget {
                       child: Row(
                         children: [
                           Text(
-                            'Review (4.6) ',
+                            'Review (${data.ratingsAverage}) ',
                             style: Styles.textStyle14.copyWith(
                               fontSize: 12.sp,
                               color: kTextColor,

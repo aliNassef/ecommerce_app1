@@ -5,12 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:readmore/readmore.dart';
 
+import '../../../../product_list/data/models/product_list_model/datum.dart';
 import 'custom_add_to_cart_button.dart';
 import 'number_of_items.dart';
 
 class ProductDetailsViewBody extends StatelessWidget {
-  const ProductDetailsViewBody({super.key});
-
+  const ProductDetailsViewBody({super.key, required this.data});
+  final Datum data;
   @override
   Widget build(BuildContext context) {
     return Padding(
