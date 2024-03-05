@@ -10,3 +10,5 @@ List<String> kOffers = [
   ImageData.offer2,
   ImageData.offer3,
 ];
+
+List<int> kSizes = [34, 35, 36, 37, 38, 39, 40, 41, 42];

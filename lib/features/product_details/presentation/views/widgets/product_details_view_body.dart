@@ -12,6 +12,7 @@ import 'number_of_items.dart';
 class ProductDetailsViewBody extends StatelessWidget {
   const ProductDetailsViewBody({super.key, required this.data});
   final Datum data;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,21 +21,24 @@ class ProductDetailsViewBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const CarsouselImages(),
+            CarsouselImages(images: data.images!),
             SizedBox(
               height: 24.h,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  'Nike Air Jordon',
-                  style: Styles.textStyle18.copyWith(
-                    color: kTextColor,
+                Expanded(
+                  child: Text(
+                    data.title!,
+                    style: Styles.textStyle18.copyWith(
+                      color: kTextColor,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
                 ),
                 Text(
-                  'EGP 3,500',
+                  'EGP ${data.price}',
                   style: Styles.textStyle18.copyWith(
                     color: kTextColor,
                   ),
@@ -57,7 +61,7 @@ class ProductDetailsViewBody extends StatelessWidget {
                   ),
                   child: Center(
                     child: Text(
-                      '3,230 Sold',
+                      '${data.sold} Sold',
                       style: Styles.textStyle14.copyWith(
                         fontWeight: FontWeight.w500,
                         color: kTextColor,
@@ -74,7 +78,7 @@ class ProductDetailsViewBody extends StatelessWidget {
                   color: Colors.yellow,
                 ),
                 Text(
-                  '4.8 (7.500)',
+                  '${data.ratingsAverage} (${data.ratingsQuantity})',
                   style: Styles.textStyle14.copyWith(
                     color: kTextColor,
                     fontWeight: FontWeight.w400,
@@ -104,7 +108,7 @@ class ProductDetailsViewBody extends StatelessWidget {
               ),
             ),
             ReadMoreText(
-              'Nike is a multinational corporation that designs, develops, and sells athletic footwear ,apparel, and accessories.',
+              data.description!,
               trimLines: 2,
               style: Styles.textStyle14.copyWith(
                 color: const Color(0xff06004F).withOpacity(0.6),
@@ -115,7 +119,7 @@ class ProductDetailsViewBody extends StatelessWidget {
               colorClickableText: kTextColor,
               trimMode: TrimMode.Line,
               trimCollapsedText: 'Read More',
-              trimExpandedText: 'less',
+              trimExpandedText: ' less',
               moreStyle: Styles.textStyle14.copyWith(
                 fontWeight: FontWeight.w400,
                 color: kTextColor,
@@ -137,13 +141,13 @@ class ProductDetailsViewBody extends StatelessWidget {
               height: 35.h,
               width: MediaQuery.of(context).size.width,
               child: ListView.builder(
-                itemCount: 10,
+                itemCount: kSizes.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return CircleAvatar(
                     backgroundColor: kPrimaryColor,
                     child: Text(
-                      '40',
+                      '${kSizes[index]}',
                       style: Styles.textStyle14.copyWith(
                         fontWeight: FontWeight.w400,
                       ),
@@ -167,15 +171,22 @@ class ProductDetailsViewBody extends StatelessWidget {
             SizedBox(
               height: 35.h,
               width: MediaQuery.of(context).size.width,
-              child: ListView.builder(
-                itemCount: 10,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return const CircleAvatar(
-                    backgroundColor: kPrimaryColor,
-                  );
-                },
-              ),
+              child: data.availableColors != null
+                  ? ListView.builder(
+                      itemCount: 10,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        return CircleAvatar(
+                          backgroundColor: data.availableColors?[index],
+                        );
+                      },
+                    )
+                  : Text(
+                      'this is the only color availabale',
+                      style: Styles.textStyle18.copyWith(
+                        color: kTextColor,
+                      ),
+                    ),
             ),
             SizedBox(
               height: 48.h,
