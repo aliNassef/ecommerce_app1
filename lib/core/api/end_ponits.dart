@@ -22,6 +22,7 @@ class ApiKey {
   static String repass = 'rePassword';
   static String currentPassword = "currentPassword";
   static String token = "token";
+  
   static String newPass = 'newPassword';
   static String message = "message";
   static String id = "id";
