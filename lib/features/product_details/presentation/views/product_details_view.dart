@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/features/product_details/presentation/manger/cubit/product_details_cubit.dart';
+import 'package:ecommerce_app/features/product_details/presentation/manger/product_details_cubit/product_details_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
