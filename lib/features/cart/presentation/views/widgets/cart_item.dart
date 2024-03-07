@@ -5,6 +5,7 @@ import '../../../../../constants.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../product_details/presentation/views/widgets/number_of_items.dart';
+import 'num_of_items.dart';
 
 class CartItem extends StatelessWidget {
   const CartItem({
@@ -117,7 +118,7 @@ class CartItem extends StatelessWidget {
                           color: kPrimaryColor,
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        child: const NumberOfItems(),
+                        child: const NumOfItems(),
                       ),
                     ],
                   )
