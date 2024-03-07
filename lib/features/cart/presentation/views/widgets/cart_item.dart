@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../constants.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
-import '../../../../product_details/presentation/views/widgets/number_of_items.dart';
 import 'num_of_items.dart';
 
 class CartItem extends StatelessWidget {
