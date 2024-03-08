@@ -3,6 +3,7 @@ import 'package:ecommerce_app/core/api/api_consumer.dart';
 import 'package:ecommerce_app/core/api/end_ponits.dart';
 import 'package:ecommerce_app/core/cache/cache_helper.dart';
 import 'package:ecommerce_app/core/errors/exceptions.dart';
+import 'package:flutter/material.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 
 import '../models/forget_pass_model.dart';
@@ -53,6 +54,8 @@ class AuthRepoImpl extends AuthRepo {
       final user = SignInModel.fromJson(response);
       var userId = JwtDecoder.decode(user.token!);
       CacheHelper().saveData(key: ApiKey.token, value: user.token);
+      debugPrint(
+          "Ali Nassef Token *********///// ${CacheHelper().getData(key: ApiKey.token)}");
       CacheHelper().saveData(key: ApiKey.id, value: userId[ApiKey.id]);
 
       return Left(user);

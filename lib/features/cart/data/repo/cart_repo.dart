@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:ecommerce_app/features/cart/data/models/cart_model/data.dart';
+import '../models/cart_model/cart_model.dart';
 
 abstract class CartRepo {
-  Future<Either<List<Data>, String>> getCartProducts();
-  Future<void> addProductToCart({required String id});
+  Future<Either<CartModel, String>> getCartProducts();
+  Future<Either<CartModel, String>> addProductToCart({required String id});
   removeSpecificCartItem({required String id});
   updateCartProductQuantity({required int count});
 }

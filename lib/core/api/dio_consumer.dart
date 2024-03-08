@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:ecommerce_app/core/api/api_consumer.dart';
+import 'package:ecommerce_app/core/cache/cache_helper.dart';
 
 import '../errors/exceptions.dart';
 import 'api_interceptors.dart';

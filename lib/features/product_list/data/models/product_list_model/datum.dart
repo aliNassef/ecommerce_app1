@@ -18,6 +18,7 @@ class Datum extends Equatable {
   final String? imageCover;
   final Category? category;
   final Brand? brand;
+  
   final double? ratingsAverage;
   final DateTime? createdAt;
   final DateTime? updatedAt;

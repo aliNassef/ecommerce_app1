@@ -13,11 +13,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'core/cache/cache_helper.dart';
 import 'features/auth/data/repo/auth_repo_impl.dart';
 import 'features/auth/presentation/manger/authantication/authantication_cubit.dart';
+import 'features/cart/data/repo/cart_repo_impl.dart';
+import 'features/cart/presentation/manger/cart_cubit/cart_cubit.dart';
 import 'features/product_list/data/repo/product_list_repo_impl.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  CacheHelper().init();
+  await CacheHelper().init();
   setupGetIt();
   runApp(const EcommerceApp());
 }
@@ -45,7 +47,10 @@ class EcommerceApp extends StatelessWidget {
           BlocProvider(
             create: (context) =>
                 ProductListCubit(getIt.get<ProductListRepoImpl>()),
-          )
+          ),
+          BlocProvider(
+            create: (context) => CartCubit(getIt.get<CartRepoImpl>()),
+          ),
         ],
         child: MaterialApp.router(
           debugShowCheckedModeBanner: false,
