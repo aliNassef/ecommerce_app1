@@ -20,8 +20,7 @@ class Subcategory {
       required this.category});
 
   Map<String, dynamic> toJson() {
-    // TODO: implement toJson
-    throw UnimplementedError();
+     throw UnimplementedError();
   }
 }
 
