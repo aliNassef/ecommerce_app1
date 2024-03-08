@@ -20,14 +20,13 @@ class Subcategory {
       required this.category});
 
   Map<String, dynamic> toJson() {
-    // TODO: implement toJson
-    throw UnimplementedError();
+     throw UnimplementedError();
   }
 }
 
-  // {
-  //                   "_id": "6407f1bcb575d3b90bf95797",
-  //                   "name": "Women's Clothing",
-  //                   "slug": "women's-clothing",
-  //                   "category": "6439d58a0049ad0b52b9003f"
-  //               }
+// {
+//                   "_id": "6407f1bcb575d3b90bf95797",
+//                   "name": "Women's Clothing",
+//                   "slug": "women's-clothing",
+//                   "category": "6439d58a0049ad0b52b9003f"
+//               }
