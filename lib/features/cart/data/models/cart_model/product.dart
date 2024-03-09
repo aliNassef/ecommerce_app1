@@ -1,9 +1,10 @@
+import 'package:ecommerce_app/features/product_list/data/models/product_list_model/datum.dart';
 import 'package:equatable/equatable.dart';
 
 class Product extends Equatable {
   final int? count;
   final String? id;
-  final Product? product;
+  final Datum? product;
   final int? price;
 
   const Product({this.count, this.id, this.product, this.price});
@@ -13,7 +14,7 @@ class Product extends Equatable {
         id: json['_id'] as String?,
         product: json['product'] == null
             ? null
-            : Product.fromJson(json['product'] as Map<String, dynamic>),
+            : Datum.fromJson(json['product'] as Map<String, dynamic>),
         price: json['price'] as int?,
       );
 

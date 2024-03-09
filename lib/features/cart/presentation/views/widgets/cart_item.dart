@@ -4,12 +4,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../constants.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
+import '../../../data/models/cart_model/product.dart';
 import 'num_of_items.dart';
 
 class CartItem extends StatelessWidget {
   const CartItem({
     super.key,
+    required this.item,
   });
+
+  final Product item;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -38,7 +43,8 @@ class CartItem extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
                   child: CachedNetworkImage(
-                    imageUrl: "http://via.placeholder.com/350x150",
+                    fit: BoxFit.fill,
+                    imageUrl: item.product!.imageCover!,
                     placeholder: (context, url) =>
                         const Center(child: CircularProgressIndicator()),
                     errorWidget: (context, url, error) =>
@@ -56,7 +62,7 @@ class CartItem extends StatelessWidget {
                       child: Row(
                         children: [
                           Text(
-                            'Nike Air Jordon',
+                            item.product!.title!.substring(0, 10),
                             style: Styles.textStyle18.copyWith(
                               color: kTextColor,
                             ),
@@ -75,55 +81,27 @@ class CartItem extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Row(
-                      children: [
-                        const CircleAvatar(
-                          backgroundColor: Colors.orange,
-                          radius: 7.5,
-                        ),
-                        Text(
-                          'Orange ',
-                          style: Styles.textStyle14.copyWith(
-                            color: const Color(0xff06004F).withOpacity(0.6),
-                            fontWeight: FontWeight.w400,
+                    Expanded(
+                      child: Row(
+                        children: [
+                          Text(
+                            'EGP ${item.price}',
+                            style: Styles.textStyle18.copyWith(
+                              color: kTextColor,
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 15.h,
-                          child: const VerticalDivider(
-                            thickness: 2,
-                            width: 2,
-                            color: Color(0xff6A6695),
+                          const Spacer(),
+                          Container(
+                            height: 42.h,
+                            width: 122.w,
+                            decoration: BoxDecoration(
+                              color: kPrimaryColor,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: const NumOfItems(),
                           ),
-                        ),
-                        Text(
-                          ' Size 40',
-                          style: Styles.textStyle14.copyWith(
-                            color: const Color(0xff06004F).withOpacity(0.6),
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          'EGP 3,500',
-                          style: Styles.textStyle18.copyWith(
-                            color: kTextColor,
-                          ),
-                        ),
-                        const Spacer(),
-                        Container(
-                          height: 42.h,
-                          width: 122.w,
-                          decoration: BoxDecoration(
-                            color: kPrimaryColor,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: const NumOfItems(),
-                        ),
-                      ],
+                        ],
+                      ),
                     )
                   ],
                 ),

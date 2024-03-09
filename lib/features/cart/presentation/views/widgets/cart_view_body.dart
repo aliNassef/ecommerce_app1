@@ -26,9 +26,13 @@ class _CartViewBodyState extends State<CartViewBody> {
         child: BlocBuilder<CartCubit, CartState>(
           builder: (context, state) {
             if (state is CartSuccess) {
+              debugPrint('${state.cartItems.data!.products!.length}');
               return ListView.builder(
+                itemCount: state.cartItems.data!.products!.length,
                 itemBuilder: (context, index) {
-                  return const CartItem();
+                  return CartItem(
+                    item: state.cartItems.data!.products![index],
+                  );
                 },
               );
             } else if (state is CartFailure) {

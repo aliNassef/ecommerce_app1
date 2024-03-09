@@ -15,7 +15,7 @@ class CartRepoImpl extends CartRepo {
       {required String id}) async {
     try {
       final response = await api.post(
-        EndPoint.addProductToCart,
+        EndPoint.getUserCart,
         data: {
           ApiKey.productId: id,
         },
@@ -32,9 +32,9 @@ class CartRepoImpl extends CartRepo {
   Future<Either<CartModel, String>> getCartProducts() async {
     try {
       final response = await api.get(
-        EndPoint.addProductToCart,
+        EndPoint.getUserCart,
       );
-      var data = CartModel.fromJson(response[ApiKey.data]);
+      var data = CartModel.fromJson(response);
       return Left(data);
     } on ServerException catch (e) {
       return Right(e.errModel.message!);
