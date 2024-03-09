@@ -11,12 +11,13 @@ class CartCubit extends Cubit<CartState> {
   final CartRepo cartRepo;
 
   addProductToCart({required String id}) async {
-    emit(CartLoading());
-    var data = await cartRepo.addProductToCart(id: id);
-    data.fold(
-      (l) => emit(CartSuccess(cartItems: l)),
-      (r) => emit(CartFailure(errMessage: r)),
-    );
+    emit(AddProducttoCartLoading());
+    try {
+      var data = await cartRepo.addProductToCart(id: id);
+      emit(AddProducttoCartSuccess());
+    } catch (e) {
+      emit(AddProducttoCartFailure(errMessage: e.toString()));
+    }
   }
 
   getCartProducts() async {

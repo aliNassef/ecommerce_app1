@@ -22,3 +22,13 @@ class CartFailure extends CartState {
 
   const CartFailure({required this.errMessage});
 }
+
+class AddProducttoCartLoading extends CartState {}
+
+class AddProducttoCartSuccess extends CartState {}
+
+class AddProducttoCartFailure extends CartState {
+  final String errMessage;
+
+  const AddProducttoCartFailure({required this.errMessage});
+}

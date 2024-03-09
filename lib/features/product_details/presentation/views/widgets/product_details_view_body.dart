@@ -210,7 +210,7 @@ class _ProductDetailsViewBodyState extends State<ProductDetailsViewBody> {
                     SizedBox(
                       width: 33.w,
                     ),
-                    const CustomAddToCartButton(),
+                    CustomAddToCartButton(id: widget.data.id!),
                   ],
                 ),
                 SizedBox(
