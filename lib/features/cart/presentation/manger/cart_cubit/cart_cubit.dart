@@ -13,7 +13,7 @@ class CartCubit extends Cubit<CartState> {
   addProductToCart({required String id}) async {
     emit(AddProducttoCartLoading());
     try {
-      var data = await cartRepo.addProductToCart(id: id);
+      await cartRepo.addProductToCart(id: id);
       emit(AddProducttoCartSuccess());
     } catch (e) {
       emit(AddProducttoCartFailure(errMessage: e.toString()));
