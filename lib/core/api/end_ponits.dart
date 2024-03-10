@@ -31,4 +31,5 @@ class ApiKey {
   static String role = 'role';
   static String phone = "phone";
   static String data = 'data';
+  static String count = 'count';
 }
