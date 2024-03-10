@@ -40,7 +40,16 @@ class CartRepoImpl extends CartRepo {
   }
 
   @override
-  removeSpecificCartItem({required String id}) {}
+  Future<Either<CartModel, String>> removeSpecificCartItem(
+      {required String id}) async {
+    try {
+      final response = await api.delete('${EndPoint.getUserCart}/$id');
+      var cartModel = CartModel.fromJson(response);
+      return Left(cartModel);
+    } on ServerException catch (e) {
+      return Right(e.errModel.message!);
+    }
+  }
 
   @override
   updateCartProductQuantity({required int count}) {

@@ -28,4 +28,13 @@ class CartCubit extends Cubit<CartState> {
       (r) => emit(CartFailure(errMessage: r)),
     );
   }
+
+  deleteSpecificItem({required String id}) async {
+    emit(CartLoading());
+    var result = await cartRepo.removeSpecificCartItem(id: id);
+    result.fold(
+      (l) => emit(CartSuccess(cartItems: l)),
+      (r) => emit(CartFailure(errMessage: r)),
+    );
+  }
 }
