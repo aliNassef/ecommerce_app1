@@ -96,15 +96,20 @@ class CartItem extends StatelessWidget {
                               color: kTextColor,
                             ),
                           ),
-                          const Spacer(),
-                          Container(
-                            height: 42.h,
-                            width: 122.w,
-                            decoration: BoxDecoration(
-                              color: kPrimaryColor,
-                              borderRadius: BorderRadius.circular(20),
+                          SizedBox(
+                            width: 30.w,
+                          ),
+                          Expanded(
+                            child: Container(
+                              height: 42.h,
+                              width: MediaQuery.of(context).size.width * 0.4,
+                              decoration: BoxDecoration(
+                                color: kPrimaryColor,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child:
+                                  Center(child: NumOfItems(count: item.count!)),
                             ),
-                            child: const NumOfItems(),
                           ),
                         ],
                       ),
