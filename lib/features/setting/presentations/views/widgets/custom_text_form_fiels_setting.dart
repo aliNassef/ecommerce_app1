@@ -13,6 +13,7 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      enabled: false,
       decoration: InputDecoration(
         contentPadding:
             const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
@@ -28,6 +29,12 @@ class CustomTextFormField extends StatelessWidget {
             height: 24.h,
             width: 24.w,
             fit: BoxFit.fill,
+          ),
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: BorderSide(
+            color: const Color(0xff004182).withOpacity(0.3),
           ),
         ),
         enabledBorder: OutlineInputBorder(

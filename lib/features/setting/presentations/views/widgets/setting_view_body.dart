@@ -14,7 +14,6 @@ class SettingViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var email = context.read<AuthanticationCubit>().signInEmail;
-    var pass = context.read<AuthanticationCubit>().signInPassword;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: SingleChildScrollView(
