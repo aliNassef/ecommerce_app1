@@ -49,7 +49,9 @@ class EcommerceApp extends StatelessWidget {
                 ProductListCubit(getIt.get<ProductListRepoImpl>()),
           ),
           BlocProvider(
-            create: (context) => CartCubit(getIt.get<CartRepoImpl>()),
+            create: (context) => CartCubit(
+              getIt.get<CartRepoImpl>(),
+            ),
           ),
         ],
         child: MaterialApp.router(

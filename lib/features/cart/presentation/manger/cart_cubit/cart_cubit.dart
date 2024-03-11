@@ -37,4 +37,17 @@ class CartCubit extends Cubit<CartState> {
       (r) => emit(CartFailure(errMessage: r)),
     );
   }
+
+  updatedCountOfProduct({required String id, required int count}) async {
+    var resault = await cartRepo.updateCartProductQuantity(
+      count: count,
+      id: id,
+    );
+    resault.fold(
+      (l) => emit(
+        UpdatedCart(totalPrice: l.data!.totalCartPrice!),
+      ),
+      (r) => emit(CartFailure(errMessage: r)),
+    );
+  }
 }

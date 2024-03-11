@@ -52,11 +52,16 @@ class CartRepoImpl extends CartRepo {
   }
 
   @override
-  updateCartProductQuantity({required int count, required String id}) async {
-    final response = await api.post('${EndPoint.getUserCart}/$id' , data: {
-      ApiKey.count : count, 
-    });
-    
-
+  Future<Either<CartModel, String>> updateCartProductQuantity(
+      {required int count, required String id}) async {
+    try {
+      final response = await api.post('${EndPoint.getUserCart}/$id', data: {
+        ApiKey.count: count,
+      });
+      var data = CartModel.fromJson(response);
+      return Left(data);
+    } on ServerException catch (e) {
+      return Right(e.errModel.message!);
+    }
   }
 }

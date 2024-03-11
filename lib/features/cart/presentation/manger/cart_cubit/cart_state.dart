@@ -32,3 +32,10 @@ class AddProducttoCartFailure extends CartState {
 
   const AddProducttoCartFailure({required this.errMessage});
 }
+
+class UpdatedCart extends CartState {
+ // final int count;
+  final int totalPrice;
+
+  const UpdatedCart({  required this.totalPrice});
+}

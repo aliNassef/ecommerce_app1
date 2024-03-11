@@ -6,5 +6,6 @@ abstract class CartRepo {
   Future<String> addProductToCart({required String id});
   Future<Either<CartModel, String>> removeSpecificCartItem(
       {required String id});
-  updateCartProductQuantity({required int count , required String id});
+  Future<Either<CartModel, String>> updateCartProductQuantity(
+      {required int count, required String id});
 }
