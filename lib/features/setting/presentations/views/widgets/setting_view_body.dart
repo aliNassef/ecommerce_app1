@@ -1,4 +1,6 @@
+import 'package:ecommerce_app/features/auth/presentation/manger/authantication/authantication_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../constants.dart';
@@ -11,6 +13,8 @@ class SettingViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var email = context.read<AuthanticationCubit>().signInEmail;
+    var pass = context.read<AuthanticationCubit>().signInPassword;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: SingleChildScrollView(
@@ -38,7 +42,7 @@ class SettingViewBody extends StatelessWidget {
               height: 8.h,
             ),
             Text(
-              'mohamed.N@gmail.com',
+              email.text,
               style: Styles.textStyle14.copyWith(
                 color: const Color(0xff06004F),
                 fontWeight: FontWeight.w500,

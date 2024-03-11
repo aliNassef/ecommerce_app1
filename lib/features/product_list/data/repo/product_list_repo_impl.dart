@@ -2,10 +2,16 @@ import 'package:dartz/dartz.dart';
 import 'package:ecommerce_app/core/api/api_consumer.dart';
 import 'package:ecommerce_app/core/api/end_ponits.dart';
 import 'package:ecommerce_app/core/errors/exceptions.dart';
+<<<<<<< HEAD
 import 'package:ecommerce_app/features/product_list/data/repo/product_list_repo.dart';
 
 import '../models/product_list_model/datum.dart';
 
+=======
+import 'package:ecommerce_app/features/product_list/data/models/product_list_model/datum.dart';
+import 'package:ecommerce_app/features/product_list/data/repo/product_list_repo.dart';
+
+>>>>>>> main
 class ProductListRepoImpl extends ProductListRepo {
   final ApiConsumer api;
 

@@ -1,14 +1,15 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:ecommerce_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../../core/utils/assets.dart';
 
 class CarsouselImages extends StatelessWidget {
   const CarsouselImages({
     super.key,
+    required this.images,
   });
-
+  final List<String> images;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -20,14 +21,19 @@ class CarsouselImages extends StatelessWidget {
           height: 300.h,
           viewportFraction: 1,
         ),
-        itemCount: 3,
+        itemCount: images.length,
         itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) =>
-            Container(
+            SizedBox(
           width: MediaQuery.of(context).size.width,
-          color: Colors.black,
-          child: Image.asset(
-            ImageData.productImage,
+          child: CachedNetworkImage(
+            imageUrl: images[itemIndex],
             fit: BoxFit.fill,
+            placeholder: (context, url) => const Center(
+              child: CircularProgressIndicator(
+                color: kPrimaryColor,
+              ),
+            ),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
           ),
         ),
       ),
