@@ -34,8 +34,9 @@ class AddProducttoCartFailure extends CartState {
 }
 
 class UpdatedCart extends CartState {
- // final int count;
-  final int totalPrice;
+  final CartModel cartModel;
 
-  const UpdatedCart({  required this.totalPrice});
+  const UpdatedCart({required this.cartModel});
 }
+
+class UpdateCount extends CartState {}

@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/features/cart/data/repo/cart_repo.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 
@@ -9,7 +10,8 @@ part 'cart_state.dart';
 class CartCubit extends Cubit<CartState> {
   CartCubit(this.cartRepo) : super(CartInitial());
   final CartRepo cartRepo;
-
+  CartModel? cartModel;
+  int count = 1;
   addProductToCart({required String id}) async {
     emit(AddProducttoCartLoading());
     try {
@@ -23,6 +25,8 @@ class CartCubit extends Cubit<CartState> {
   getCartProducts() async {
     emit(CartLoading());
     var data = await cartRepo.getCartProducts();
+    cartModel = data.fold((l) => l, (r) => null);
+    debugPrint('t=print it  $cartModel');
     data.fold(
       (l) => emit(CartSuccess(cartItems: l)),
       (r) => emit(CartFailure(errMessage: r)),
@@ -39,15 +43,29 @@ class CartCubit extends Cubit<CartState> {
   }
 
   updatedCountOfProduct({required String id, required int count}) async {
-    var resault = await cartRepo.updateCartProductQuantity(
-      count: count,
-      id: id,
-    );
-    resault.fold(
-      (l) => emit(
-        UpdatedCart(totalPrice: l.data!.totalCartPrice!),
-      ),
-      (r) => emit(CartFailure(errMessage: r)),
-    );
+    emit(CartLoading());
+    if (count != 0) {
+      var resault = await cartRepo.updateCartProductQuantity(
+        count: count,
+        id: id,
+      );
+      resault.fold(
+        (l) => emit(
+          CartSuccess(cartItems: l),
+        ),
+        (r) => emit(CartFailure(errMessage: r)),
+      );
+    } else {
+      var resault = await cartRepo.updateCartProductQuantity(
+        count: 1,
+        id: id,
+      );
+      resault.fold(
+        (l) => emit(
+          CartSuccess(cartItems: l),
+        ),
+        (r) => emit(CartFailure(errMessage: r)),
+      );
+    }
   }
 }

@@ -55,7 +55,7 @@ class CartRepoImpl extends CartRepo {
   Future<Either<CartModel, String>> updateCartProductQuantity(
       {required int count, required String id}) async {
     try {
-      final response = await api.post('${EndPoint.getUserCart}/$id', data: {
+      final response = await api.patch('${EndPoint.getUserCart}/$id', data: {
         ApiKey.count: count,
       });
       var data = CartModel.fromJson(response);

@@ -107,8 +107,11 @@ class CartItem extends StatelessWidget {
                                 color: kPrimaryColor,
                                 borderRadius: BorderRadius.circular(20),
                               ),
-                              child:
-                                  Center(child: NumOfItems(count: item.count!)),
+                              child: Center(
+                                  child: NumOfItems(
+                                count: item.count!,
+                                id: item.product!.id!,
+                              )),
                             ),
                           ),
                         ],
