@@ -18,13 +18,11 @@ class Datum extends Equatable {
   final String? imageCover;
   final Category? category;
   final Brand? brand;
-
   final double? ratingsAverage;
   final DateTime? createdAt;
   final DateTime? updatedAt;
+  final int? v;
   final String? idd;
-  final int? priceAfterDiscount;
-  final List<dynamic>? availableColors;
 
   const Datum({
     this.sold,
@@ -43,14 +41,13 @@ class Datum extends Equatable {
     this.ratingsAverage,
     this.createdAt,
     this.updatedAt,
+    this.v,
     this.idd,
-    this.priceAfterDiscount,
-    this.availableColors,
   });
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         sold: json['sold'] as int?,
-        images: (json['images'] as List<dynamic>?)?.cast<String>(),
+        images: json['images'] as List<String>?,
         subcategory: (json['subcategory'] as List<dynamic>?)
             ?.map((e) => Subcategory.fromJson(e as Map<String, dynamic>))
             .toList(),
@@ -75,9 +72,8 @@ class Datum extends Equatable {
         updatedAt: json['updatedAt'] == null
             ? null
             : DateTime.parse(json['updatedAt'] as String),
+        v: json['__v'] as int?,
         idd: json['id'] as String?,
-        priceAfterDiscount: json['priceAfterDiscount'] as int?,
-        availableColors: json['availableColors'] as List<dynamic>?,
       );
 
   Map<String, dynamic> toJson() => {
@@ -97,9 +93,8 @@ class Datum extends Equatable {
         'ratingsAverage': ratingsAverage,
         'createdAt': createdAt?.toIso8601String(),
         'updatedAt': updatedAt?.toIso8601String(),
-        'id': idd,
-        'priceAfterDiscount': priceAfterDiscount,
-        'availableColors': availableColors,
+        '__v': v,
+        'id': id,
       };
 
   @override
@@ -121,9 +116,8 @@ class Datum extends Equatable {
       ratingsAverage,
       createdAt,
       updatedAt,
+      v,
       idd,
-      priceAfterDiscount,
-      availableColors,
     ];
   }
 }
