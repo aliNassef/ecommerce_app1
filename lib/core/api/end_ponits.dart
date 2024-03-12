@@ -13,6 +13,7 @@ class EndPoint {
   static String allCategories = 'api/v1/categories';
   static String allProduct = 'api/v1/products';
   static String getUserCart = 'api/v1/cart';
+  static String wishList = 'api/v1/wishlist';
 }
 
 class ApiKey {
