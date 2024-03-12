@@ -1,11 +1,24 @@
+import 'package:ecommerce_app/features/favorite/presentation/manger/cubit/fav_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../home/presentation/views/widgets/custom_app_bar.dart';
 import 'favorite_item.dart';
 
-class FavoritViewBody extends StatelessWidget {
+class FavoritViewBody extends StatefulWidget {
   const FavoritViewBody({super.key});
+
+  @override
+  State<FavoritViewBody> createState() => _FavoritViewBodyState();
+}
+
+class _FavoritViewBodyState extends State<FavoritViewBody> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<FavCubit>().getFavProducts();
+  }
 
   @override
   Widget build(BuildContext context) {

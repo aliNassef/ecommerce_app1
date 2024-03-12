@@ -47,7 +47,7 @@ class Datum extends Equatable {
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         sold: json['sold'] as int?,
-        images: json['images'] as List<String>?,
+        images: (json['images'] as List<dynamic>?)?.cast<String>(),
         subcategory: (json['subcategory'] as List<dynamic>?)
             ?.map((e) => Subcategory.fromJson(e as Map<String, dynamic>))
             .toList(),

@@ -10,11 +10,11 @@ class FavRepoImpl extends FavRepo {
 
   FavRepoImpl({required this.api});
   @override
-  Future<Either<FavModel, String>> getFavProducts({required String id}) async {
+  Future<Either<FavModel, String>> getFavProducts() async {
     try {
-      final response = await api.get(EndPoint.wishList, data: {
-        ApiKey.productId: id,
-      });
+      final response = await api.get(
+        EndPoint.wishList,
+      );
       var data = FavModel.fromJson(response);
       return Left(data);
     } on ServerException catch (e) {

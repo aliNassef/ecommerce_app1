@@ -9,9 +9,9 @@ class FavCubit extends Cubit<FavState> {
   FavCubit(this.favRepo) : super(FavInitial());
   final FavRepo favRepo;
 
-  getFavProducts({required String id}) async {
+  getFavProducts( ) async {
     emit(FavLoading());
-    final result = await favRepo.getFavProducts(id: id);
+    final result = await favRepo.getFavProducts();
     result.fold(
       (l) => emit(FavLoaded(favModel: l)),
       (r) => emit(FavFailure(errMessage: r)),

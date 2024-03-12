@@ -1,6 +1,8 @@
 import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/core/api/server_locator.dart';
 import 'package:ecommerce_app/core/utils/app_router.dart';
+import 'package:ecommerce_app/features/favorite/data/repo/fav_repo_impl.dart';
+import 'package:ecommerce_app/features/favorite/presentation/manger/cubit/fav_cubit.dart';
 import 'package:ecommerce_app/features/home/data/repos/home_repo/home_repo_impl.dart';
 import 'package:ecommerce_app/features/home/presentation/views/manger/category_cubit/categories_cubit.dart';
 import 'package:ecommerce_app/features/home/presentation/views/manger/sub_category/sub_category_cubit.dart';
@@ -51,6 +53,11 @@ class EcommerceApp extends StatelessWidget {
           BlocProvider(
             create: (context) => CartCubit(
               getIt.get<CartRepoImpl>(),
+            ),
+          ),
+          BlocProvider(
+            create: (context) => FavCubit(
+              getIt.get<FavRepoImpl>(),
             ),
           ),
         ],
