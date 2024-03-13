@@ -170,23 +170,12 @@ class _ProductDetailsViewBodyState extends State<ProductDetailsViewBody> {
                 SizedBox(
                   height: 35.h,
                   width: MediaQuery.of(context).size.width,
-                  child: widget.data.availableColors != null
-                      ? ListView.builder(
-                          itemCount: 10,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index) {
-                            return CircleAvatar(
-                              backgroundColor:
-                                  widget.data.availableColors?[index],
-                            );
-                          },
-                        )
-                      : Text(
-                          'this is the only color availabale',
-                          style: Styles.textStyle18.copyWith(
-                            color: kTextColor,
-                          ),
-                        ),
+                  child: Text(
+                    'this is the only color availabale',
+                    style: Styles.textStyle18.copyWith(
+                      color: kTextColor,
+                    ),
+                  ),
                 ),
                 SizedBox(
                   height: 48.h,
