@@ -23,4 +23,10 @@ class FavCubit extends Cubit<FavState> {
     emit(AddTOFavDone());
     getFavProducts();
   }
+
+  removeeProducrtFromWishList({required String id}) async {
+    await favRepo.removeProdductFromFav(id: id);
+    emit(RemoveFromFavDone());
+    getFavProducts();
+  }
 }

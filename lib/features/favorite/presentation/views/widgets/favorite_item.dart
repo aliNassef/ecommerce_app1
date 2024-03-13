@@ -1,5 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommerce_app/features/favorite/presentation/manger/cubit/fav_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../constants.dart';
@@ -65,7 +67,11 @@ class FavoriteItem extends StatelessWidget {
                       const Spacer(),
                       IconButton(
                         padding: EdgeInsets.zero,
-                        onPressed: () {},
+                        onPressed: () {
+                          context
+                              .read<FavCubit>()
+                              .removeeProducrtFromWishList(id: data.id!);
+                        },
                         icon: Center(
                           child: Image.asset(
                             ImageData.fav,
@@ -104,7 +110,7 @@ class FavoriteItem extends StatelessWidget {
                           color: kPrimaryColor,
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        child: const AddToCartButton(),
+                        child:   AddToCartButton(id: data.id!),
                       ),
                     ],
                   )

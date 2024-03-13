@@ -33,4 +33,13 @@ class FavRepoImpl extends FavRepo {
       debugPrint('${e.errModel.message}');
     }
   }
+
+  @override
+  Future<void> removeProdductFromFav({required String id}) async {
+    try {
+      await api.delete('${EndPoint.wishList}/$id');
+    } on ServerException catch (e) {
+      debugPrint('${e.errModel.message}');
+    }
+  }
 }
