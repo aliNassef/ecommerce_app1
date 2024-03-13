@@ -29,4 +29,5 @@ abstract class ImageData {
   static const unfav = 'assets/images/un_fav.png';
   static const loveIcon = 'assets/images/love_icon.png';
   static const loveIcon2 = 'assets/images/love_icon2.png';
+  static const splashScreen = 'assets/images/Splash Screen.png';
 }
