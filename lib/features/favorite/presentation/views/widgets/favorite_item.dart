@@ -1,16 +1,19 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../constants.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
+import '../../../data/models/fav_model/datum.dart';
 import 'add_cart_button.dart';
 
 class FavoriteItem extends StatelessWidget {
   const FavoriteItem({
     super.key,
+    required this.data,
   });
-
+  final Datum data;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,9 +39,12 @@ class FavoriteItem extends StatelessWidget {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(15),
-                child: Image.asset(
-                  ImageData.product,
+                child: CachedNetworkImage(
                   fit: BoxFit.fill,
+                  imageUrl: data.imageCover!,
+                  placeholder: (context, url) =>
+                      const Center(child: CircularProgressIndicator()),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
             ),
@@ -51,7 +57,7 @@ class FavoriteItem extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        'Nike Air Jordon',
+                        data.title!.substring(0, 11),
                         style: Styles.textStyle18.copyWith(
                           color: kTextColor,
                         ),
@@ -73,15 +79,10 @@ class FavoriteItem extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      const CircleAvatar(
-                        backgroundColor: Colors.orange,
-                        radius: 7.5,
-                      ),
                       Text(
-                        ' Orange',
-                        style: Styles.textStyle14.copyWith(
-                          color: const Color(0xff06004F).withOpacity(0.6),
-                          fontWeight: FontWeight.w400,
+                        'Brand : ${data.brand!.name!}',
+                        style: Styles.textStyle16.copyWith(
+                          color: kTextColor,
                         ),
                       ),
                     ],
@@ -89,18 +90,10 @@ class FavoriteItem extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        'EGP 3,500 ',
+                        'EGP ${data.price} ',
                         style: Styles.textStyle14.copyWith(
                           color: kTextColor,
                           fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      Text(
-                        'EGP 1,500',
-                        style: Styles.textStyle18.copyWith(
-                          color: const Color(0xff06004F).withOpacity(0.6),
-                          fontSize: 11.sp,
-                          fontWeight: FontWeight.w400,
                         ),
                       ),
                       const Spacer(),

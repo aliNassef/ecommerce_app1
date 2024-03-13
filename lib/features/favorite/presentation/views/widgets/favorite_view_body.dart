@@ -29,7 +29,33 @@ class _FavoritViewBodyState extends State<FavoritViewBody> {
           SizedBox(
             height: 24.h,
           ),
-          const FavoriteItem(),
+          Expanded(
+            child: BlocBuilder<FavCubit, FavState>(
+              builder: (context, state) {
+                if (state is FavLoaded) {
+                  return ListView.builder(
+                    itemCount: state.favModel.data!.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 16.w),
+                        child: FavoriteItem(
+                          data: state.favModel.data![index],
+                        ),
+                      );
+                    },
+                  );
+                } else if (state is FavFailure) {
+                  return Center(
+                    child: Text(state.errMessage),
+                  );
+                } else {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+              },
+            ),
+          )
         ],
       ),
     );
