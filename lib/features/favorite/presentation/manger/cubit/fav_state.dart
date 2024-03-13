@@ -22,3 +22,7 @@ final class FavFailure extends FavState {
 
   const FavFailure({required this.errMessage});
 }
+
+final class AddTOFavDone extends FavState {
+ 
+}

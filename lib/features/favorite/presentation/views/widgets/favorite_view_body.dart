@@ -37,7 +37,10 @@ class _FavoritViewBodyState extends State<FavoritViewBody> {
                     itemCount: state.favModel.data!.length,
                     itemBuilder: (context, index) {
                       return Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16.w),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 16.w,
+                          vertical: 24.h,
+                        ),
                         child: FavoriteItem(
                           data: state.favModel.data![index],
                         ),

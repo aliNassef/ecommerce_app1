@@ -1,5 +1,7 @@
+import 'package:ecommerce_app/features/favorite/presentation/manger/cubit/fav_cubit.dart';
 import 'package:ecommerce_app/features/product_list/data/models/product_list_model/datum.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/utils/assets.dart';
@@ -11,7 +13,7 @@ class CustomProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      fit: StackFit.expand,
+      fit: StackFit.loose,
       children: [
         CustomProduct(data: model),
         Positioned(
@@ -22,7 +24,9 @@ class CustomProductItem extends StatelessWidget {
               padding: MaterialStatePropertyAll(EdgeInsets.zero),
             ),
             padding: EdgeInsets.zero,
-            onPressed: () {},
+            onPressed: () {
+              context.read<FavCubit>().addProductToWishList(id: model.id!);
+            },
             icon: Image.asset(ImageData.unfav),
           ),
         ),

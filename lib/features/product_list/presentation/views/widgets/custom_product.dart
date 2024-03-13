@@ -91,7 +91,7 @@ class CustomProduct extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 8.0, right: 8),
+                      padding: const EdgeInsets.only(bottom: 0, right: 8),
                       child: Row(
                         children: [
                           Text(
