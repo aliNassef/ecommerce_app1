@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/core/helper/awesome_dialog_method.dart';
 import 'package:ecommerce_app/features/cart/presentation/manger/cart_cubit/cart_cubit.dart';
+import 'package:ecommerce_app/features/product_details/presentation/manger/product_details_cubit/product_details_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,6 +19,8 @@ class CustomAddToCartButton extends StatelessWidget {
     return BlocListener<CartCubit, CartState>(
       listener: (context, state) {
         if (state is AddProducttoCartSuccess) {
+          context.read<CartCubit>().updatedCountOfProduct(
+              id: id, count: context.read<ProductDetailsCubit>().increment);
           GoRouter.of(context).push('/CartView');
         } else if (state is AddProducttoCartFailure) {
           awesomeDialogMethod(context, state.errMessage);
@@ -26,6 +29,7 @@ class CustomAddToCartButton extends StatelessWidget {
       child: Expanded(
         child: GestureDetector(
           onTap: () async {
+            debugPrint('${context.read<ProductDetailsCubit>().increment}');
             await context.read<CartCubit>().addProductToCart(id: id);
           },
           child: Container(

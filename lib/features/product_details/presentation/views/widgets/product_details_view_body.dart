@@ -106,8 +106,10 @@ class _ProductDetailsViewBodyState extends State<ProductDetailsViewBody> {
                           color: kPrimaryColor,
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        child: const Center(
-                          child: NumberOfItems(),
+                        child: Center(
+                          child: NumberOfItems(
+                            id: widget.data.id!,
+                          ),
                         ),
                       ),
                     ),

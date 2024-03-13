@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/features/cart/presentation/manger/cart_cubit/cart_cubit.dart';
 import 'package:ecommerce_app/features/product_details/presentation/manger/product_details_cubit/product_details_cubit.dart';
 import 'package:ecommerce_app/features/product_details/presentation/manger/product_details_cubit/product_details_state.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,9 @@ import '../../../../../core/utils/styles.dart';
 class NumberOfItems extends StatelessWidget {
   const NumberOfItems({
     super.key,
+    required this.id,
   });
+  final String id;
 
   @override
   Widget build(BuildContext context) {
