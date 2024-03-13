@@ -11,7 +11,7 @@ class SplashViewBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Image.asset(
-          height: 921.h,
+          height: MediaQuery.of(context).size.,
           fit: BoxFit.fill,
           ImageData.splashScreen,
         ),
