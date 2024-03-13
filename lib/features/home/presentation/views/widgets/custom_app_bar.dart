@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/assets.dart';
 import 'custom_search_bar.dart';
@@ -35,8 +36,13 @@ class CustomAppBar extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 24),
-                child: Image.asset(
-                  ImageData.shoppingCart,
+                child: InkWell(
+                  onTap: () {
+                    GoRouter.of(context).push('/CartView');
+                  },
+                  child: Image.asset(
+                    ImageData.shoppingCart,
+                  ),
                 ),
               ),
             ],
