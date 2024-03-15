@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../../constants.dart';
@@ -9,22 +10,29 @@ class CustomSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: InputDecoration(
-        contentPadding:
-            const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
-        hintText: 'what do you search for?',
-        hintStyle: Styles.textStyle14,
-        prefixIcon: const Icon(
-          FontAwesomeIcons.magnifyingGlass,
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(
-            25,
-          ),
-          borderSide: const BorderSide(
-            color: kPrimaryColor,
-          ),
+    return Container(
+      height: 50,
+      decoration: BoxDecoration(
+        border: Border.all(color: kPrimaryColor),
+        borderRadius: BorderRadius.circular(25),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: Row(
+          children: [
+            const Icon(
+              FontAwesomeIcons.magnifyingGlass,
+              size: 20,
+              color: kPrimaryColor,
+            ),
+            SizedBox(
+              width: 20.w,
+            ),
+            Text(
+              ('what do you search for?'),
+              style: Styles.textStyle14,
+            ),
+          ],
         ),
       ),
     );
