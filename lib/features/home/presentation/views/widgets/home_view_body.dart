@@ -40,7 +40,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const CustomAppBar(),
+        //      const CustomAppBar(),
               const SizedBox(
                 height: 10,
               ),

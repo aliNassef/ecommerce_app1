@@ -25,7 +25,7 @@ class _FavoritViewBodyState extends State<FavoritViewBody> {
     return SafeArea(
       child: Column(
         children: [
-          const CustomAppBar(),
+    //      const CustomAppBar(),
           SizedBox(
             height: 24.h,
           ),

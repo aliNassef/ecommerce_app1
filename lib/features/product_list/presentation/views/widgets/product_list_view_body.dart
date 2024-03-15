@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
-
 import '../../../../../constants.dart';
 import '../../../../home/presentation/views/widgets/custom_app_bar.dart';
 import 'custom_product_item.dart';
@@ -24,19 +23,36 @@ class _ProductListViewBodyState extends State<ProductListViewBody> {
     super.initState();
   }
 
-  List<Datum> prodducts = [];
+  final textController = TextEditingController();
+  List<Datum> products = [];
+  List<Datum> filterList = [];
+
+  void addValueToSearchItem(value) {
+    filterList = products
+        .where(
+          (item) => item.title!.toLowerCase().startsWith(value),
+        )
+        .toList();
+    setState(() {});
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const CustomAppBar(),
+        CustomAppBar(
+          textController: textController,
+          onChanged: (value) {
+            addValueToSearchItem(value);
+          },
+        ),
         SizedBox(
           height: 24.h,
         ),
         BlocConsumer<ProductListCubit, ProductListState>(
           listener: (context, state) {
             if (state is ProductListSuccessFetch) {
-              prodducts = state.products;
+              products = state.products;
             }
           },
           builder: (context, state) {
@@ -52,10 +68,15 @@ class _ProductListViewBodyState extends State<ProductListViewBody> {
                     mainAxisSpacing: 16.h,
                     crossAxisSpacing: 16.w,
                   ),
-                  itemCount: prodducts.length,
+                  itemCount: textController.text.isEmpty
+                      ? products.length
+                      : filterList.length,
                   itemBuilder: (context, index) {
                     return CustomProductItem(
-                      model: prodducts[index],
+                      //use textController
+                      model: textController.text.isEmpty
+                          ? products[index]
+                          : filterList[index],
                     );
                   },
                 ),
