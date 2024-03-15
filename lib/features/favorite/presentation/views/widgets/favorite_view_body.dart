@@ -2,8 +2,8 @@ import 'package:ecommerce_app/features/favorite/presentation/manger/cubit/fav_cu
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../home/presentation/views/widgets/custom_app_bar.dart';
+import '../../../data/models/fav_model/datum.dart';
 import 'favorite_item.dart';
 
 class FavoritViewBody extends StatefulWidget {
@@ -20,21 +20,48 @@ class _FavoritViewBodyState extends State<FavoritViewBody> {
     context.read<FavCubit>().getFavProducts();
   }
 
+  List<Datum> filterList = [];
+  List<Datum> favProducts = [];
+  final textController = TextEditingController();
+
+  void addValueToSearchItem(value) {
+    filterList = favProducts
+        .where(
+          (item) => item.title!.toLowerCase().startsWith(value),
+        )
+        .toList();
+
+    debugPrint('--------${filterList.length}');
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Column(
         children: [
-    //      const CustomAppBar(),
+          CustomAppBar(
+            onChanged: (value) {
+              addValueToSearchItem(value);
+            },
+            textController: textController,
+          ),
           SizedBox(
             height: 24.h,
           ),
           Expanded(
-            child: BlocBuilder<FavCubit, FavState>(
+            child: BlocConsumer<FavCubit, FavState>(
+              listener: (context, state) {
+                if (state is FavLoaded) {
+                  favProducts = state.favModel.data!;
+                }
+              },
               builder: (context, state) {
                 if (state is FavLoaded) {
                   return ListView.builder(
-                    itemCount: state.favModel.data!.length,
+                    itemCount: textController.text.isEmpty
+                        ? favProducts.length
+                        : filterList.length,
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: EdgeInsets.symmetric(
@@ -42,7 +69,9 @@ class _FavoritViewBodyState extends State<FavoritViewBody> {
                           vertical: 24.h,
                         ),
                         child: FavoriteItem(
-                          data: state.favModel.data![index],
+                          data: textController.text.isEmpty
+                              ? favProducts[index]
+                              : filterList[index],
                         ),
                       );
                     },

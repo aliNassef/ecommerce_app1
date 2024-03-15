@@ -6,7 +6,6 @@ import 'package:go_router/go_router.dart';
 import '../../../../../constants.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
-import '../../../../product_list/data/models/product_list_model/datum.dart';
 import 'custom_search_bar.dart';
 
 class CustomAppBar extends StatefulWidget {
@@ -24,7 +23,6 @@ class CustomAppBar extends StatefulWidget {
 }
 
 class _CustomAppBarState extends State<CustomAppBar> {
-  List<Datum> filterList = [];
   bool isSearch = false;
 
   Widget buildSearch() {
