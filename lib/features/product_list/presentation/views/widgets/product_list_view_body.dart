@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 import '../../../../../constants.dart';
-import '../../../../home/presentation/views/widgets/custom_app_bar.dart';
+import '../../../../../core/helper/custom_app_bar.dart';
 import 'custom_product_item.dart';
 
 class ProductListViewBody extends StatefulWidget {

@@ -3,9 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../constants.dart';
-import '../../../../../core/utils/assets.dart';
-import '../../../../../core/utils/styles.dart';
+import '../../constants.dart';
+import '../utils/assets.dart';
+import '../utils/styles.dart';
 import 'custom_search_bar.dart';
 
 class CustomAppBar extends StatefulWidget {

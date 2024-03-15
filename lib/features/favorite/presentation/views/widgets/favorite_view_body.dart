@@ -2,7 +2,7 @@ import 'package:ecommerce_app/features/favorite/presentation/manger/cubit/fav_cu
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../home/presentation/views/widgets/custom_app_bar.dart';
+import '../../../../../core/helper/custom_app_bar.dart';
 import '../../../data/models/fav_model/datum.dart';
 import 'favorite_item.dart';
 
