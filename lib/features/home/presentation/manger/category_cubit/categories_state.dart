@@ -1,4 +1,4 @@
-import '../../../../data/models/categorey_model/categorey_model.dart';
+import '../../../data/models/categorey_model/categorey_model.dart';
 
 class CategoriesState {}
 
