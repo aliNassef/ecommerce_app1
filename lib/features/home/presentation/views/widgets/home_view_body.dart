@@ -9,7 +9,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 import '../manger/sub_category/sub_category_state.dart';
-import 'custom_app_bar.dart';
 import 'custom_category_list_view.dart';
 import 'custom_cateory_button.dart';
 import 'custom_home_view_body_offers.dart';
@@ -40,7 +39,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-        //      const CustomAppBar(),
+              //      const CustomAppBar(),
               const SizedBox(
                 height: 10,
               ),
