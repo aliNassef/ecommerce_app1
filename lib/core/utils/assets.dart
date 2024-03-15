@@ -7,7 +7,7 @@ abstract class ImageData {
   static const v4 = 'assets/images/Vector4.png';
   static const vv1 = 'assets/images/vv3.png';
   static const vv2 = 'assets/images/vv2.png';
-  static const vv3 = 'assets/images/v11.png';
+  static const vv3 = 'assets/images/vv1.png';
   static const vv4 = 'assets/images/vv4.png';
   static const shoppingCart = 'assets/images/shopping_cart.png';
   static const routeAppBar = 'assets/images/route_appbar.png';
