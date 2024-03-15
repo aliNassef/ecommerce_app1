@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce_app/constants.dart';
 import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:ecommerce_app/features/favorite/presentation/manger/cubit/fav_cubit.dart';
@@ -7,8 +6,6 @@ import 'package:ecommerce_app/features/home/data/models/categorey_model/categore
 import 'package:ecommerce_app/features/home/presentation/manger/category_cubit/categories_cubit.dart';
 import 'package:ecommerce_app/features/home/presentation/manger/category_cubit/categories_state.dart';
 import 'package:ecommerce_app/features/home/presentation/manger/sub_category/sub_category_cubit.dart';
-import 'package:ecommerce_app/features/product_list/presentation/manger/product_list_cubit/product_list_cubit.dart';
-import 'package:ecommerce_app/features/product_list/presentation/manger/product_list_cubit/product_list_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
