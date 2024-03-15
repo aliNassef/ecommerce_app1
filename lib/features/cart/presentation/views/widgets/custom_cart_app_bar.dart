@@ -37,7 +37,8 @@ class CustomCartAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+          },
           icon: const Icon(
             FontAwesomeIcons.magnifyingGlass,
             color: kPrimaryColor,
