@@ -13,7 +13,7 @@ class CustomProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      fit: StackFit.loose,
+      fit: StackFit.expand,
       children: [
         CustomProduct(data: model),
         Positioned(
